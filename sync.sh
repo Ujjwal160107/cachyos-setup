@@ -17,6 +17,9 @@ EXCLUDES=(
   --exclude='blob_storage/' --exclude='Crashpad/' --exclude='logs/'
   --exclude='*.log' --exclude='*.pid' --exclude='*.lock' --exclude='*.sock'
   --exclude='.DS_Store'
+  # Claude notifier scratch space; see .gitignore
+  --exclude='claude-notifier-task-start/' --exclude='claude-notifier-active.d/'
+  --exclude='claude-signal' --exclude='claude-notifier-focus'
 )
 
 while IFS= read -r line; do

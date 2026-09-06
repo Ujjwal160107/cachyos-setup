@@ -104,3 +104,12 @@ wallpapers/wallpaper-engine/*Cache*
 # Python bytecode from running the helper scripts.
 __pycache__/
 *.pyc
+
+# Claude notifier hook runtime state: PID files, a signal file rewritten on
+# every prompt, and one JSON per session. The hook scripts and
+# claude-notifier-config.json next to these ARE tracked; this is just their
+# scratch space. Tracking it means every session shows up as a diff.
+home/.claude/hooks/claude-notifier-task-start/
+home/.claude/hooks/claude-notifier-active.d/
+home/.claude/hooks/claude-signal
+home/.claude/hooks/claude-notifier-focus
