@@ -66,9 +66,10 @@ quietly break the animated wallpaper.
 
 ### Reapplying after an ii update
 
-**This is the thing that bites.** Updating ii overwrites both files and the
-animated wallpaper silently stops showing. There is no error; the desktop just
-goes back to a static background.
+**This is the thing that bites.** `./setup install` rsyncs `~/.config/quickshell`
+with `--delete`, so both patched files are replaced wholesale. The animated
+wallpaper then silently stops showing. There is no error; the desktop just goes
+back to a static background, and it is not obvious why.
 
 ```bash
 cd ~/.config

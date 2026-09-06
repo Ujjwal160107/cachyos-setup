@@ -8,6 +8,7 @@ formulahendry.code-runner
 github.vscode-github-actions
 hbenl.vscode-test-explorer
 icrawl.discord-vscode
+kickbacksai.kickbacks-ai
 ms-azuretools.vscode-containers
 ms-python.debugpy
 ms-python.python

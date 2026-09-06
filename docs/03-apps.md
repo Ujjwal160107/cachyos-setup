@@ -123,10 +123,35 @@ Regenerate the manifest any time your subscriptions change:
 ./wallpapers/wallpaper-engine/generate-manifest.py
 ```
 
-**Do not enable "launch on login" in the GUI.** It was turned off deliberately —
-starting it before the Hyprland session is fully up produces a black screen
-instead of a wallpaper. Start it from the Hyprland autostart config instead, so
-it comes up after the compositor.
+### How it actually starts
+
+**Not** from the GUI. `launchOnLogin` is `false` in `settings.json` and the
+`~/.config/autostart` entry was removed, both deliberately: the GUI autostart
+took about **two and a half minutes** after login to put a wallpaper on screen.
+
+Instead, `~/.config/hypr/custom/scripts/wallpaper-engine.sh` is launched from
+`~/.config/hypr/custom/execs.lua`, so the renderer comes up with the compositor.
+Both files are tracked, so `install.sh` restores this wiring.
+
+The GUI is still the tool for *picking* wallpapers. The script re-syncs from the
+`active-wallpapers.json` it writes.
+
+Runtime state lives in `~/.local/state/wallpaper-engine/` and is **not** tracked:
+
+| File | What |
+|---|---|
+| `current` | The wallpaper in use |
+| `lockscreen.png` | A static frame, used as the lock screen background |
+| `renderer.log`, `sync.log` | Where to look when the wallpaper does not appear |
+
+The lock screen shows that static frame because a live renderer cannot draw on
+the lock surface. `switchwall.sh` sets ii's `background.wallpaperPath` to it and
+re-derives the Material You colours; `lock.blur.enable` is set `false` so the
+frame shows unblurred.
+
+`wallpaper-engine-sync.sh` in the same directory is an older Proton-based config
+watcher, now unused. It is kept only so you recognise it as dead rather than
+wonder what it does.
 
 ## Browsers
 
