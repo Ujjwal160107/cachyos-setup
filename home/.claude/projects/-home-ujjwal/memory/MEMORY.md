@@ -1,0 +1,3 @@
+- [Windows to CachyOS migration (Sep 2026)](windows-migration-2026-09.md) — repos in ~/dev, HTTPS remotes, SSH keys are Antra1705's, /mnt/win read-only
+- [ii dots install](ii-dots-install.md) — end-4 illogical-impulse installed 2026-09-06; backup dir, UWSM caveat, archived waybar stub
+- [Wallpaper Engine startup](wallpaper-engine-setup.md) — launcher script, GUI autostart off, two ii QML patches lost on ii update

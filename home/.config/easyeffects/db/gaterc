@@ -1,0 +1,6 @@
+[sie][Gate#0]
+attack=5
+curveThreshold=-45
+hysteresis=true
+hysteresisThreshold=-50
+release=200

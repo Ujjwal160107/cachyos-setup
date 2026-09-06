@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# Cycle EasyEffects output presets, restricted to the set matching the
+# ALC257's current active port (speaker vs headphone), so the keybind
+# never lands on a headphone preset while on speakers or vice versa.
+set -uo pipefail
+
+SINK=alsa_output.pci-0000_00_1f.3.analog-stereo
+STATE_FILE="${XDG_RUNTIME_DIR:-/tmp}/ee-preset-index"
+
+SPEAKER_PRESETS=(Speakers-Balanced Speakers-Night Speakers-Game)
+HEADPHONE_PRESETS=(Headphones-Reference Headphones-Flat)
+
+current_port() {
+  pactl list sinks | awk -v s="$SINK" '
+    $1 == "Name:"  { in_sink = ($2 == s) }
+    in_sink && $1 == "Active" && $2 == "Port:" { print $3; exit }'
+}
+
+port=$(current_port)
+case "$port" in
+  analog-output-headphones) list=("${HEADPHONE_PRESETS[@]}") ;;
+  *)                        list=("${SPEAKER_PRESETS[@]}") ;;
+esac
+
+idx=0
+[ -f "$STATE_FILE" ] && idx=$(cat "$STATE_FILE" 2>/dev/null || echo 0)
+idx=$(( (idx + 1) % ${#list[@]} ))
+echo "$idx" > "$STATE_FILE"
+
+preset="${list[$idx]}"
+easyeffects -l "$preset"
+command -v notify-send >/dev/null && notify-send -a "EasyEffects" -i audio-speakers "Preset: $preset" -t 1500

@@ -1,0 +1,106 @@
+# ---------------------------------------------------------------------------
+# Secrets. These patterns are deliberately broad: this file is the last line of
+# defence if someone (or some agent) runs `git add -A` from the repo root.
+# Nothing matching these has ever been committed. See docs/04-secrets-and-logins.md
+# for how to restore each one on a new machine.
+# ---------------------------------------------------------------------------
+**/.ssh/
+**/.gnupg/
+**/.pki/
+**/.netrc
+**/.git-credentials
+**/.npmrc
+**/.pypirc
+**/.aws/
+**/.azure/
+**/.kube/
+**/gcloud/
+**/gh/hosts.yml
+**/keyrings/
+**/.claude.json
+**/.codex/
+**/.copilot/
+
+*.pem
+*.key
+*.pfx
+*.p12
+*.keystore
+*.jks
+id_rsa*
+id_ecdsa*
+id_ed25519*
+!id_*.pub.example
+
+.env
+.env.*
+!.env.example
+# Anchored to real credential filenames. Earlier these were `*secret*`/`*token*`,
+# which swallowed legitimate config such as ii dots' services/gCloud/token_from_key.py.
+credentials.json
+*-credentials.json
+*service-account*.json
+secrets.json
+secrets.yaml
+secrets.yml
+.secrets
+*.token
+
+# ---------------------------------------------------------------------------
+# Runtime state and caches: machine-specific, large, or regenerated on demand.
+# ---------------------------------------------------------------------------
+Cache/
+CachedData/
+GPUCache/
+Code?Cache/
+DawnGraphiteCache/
+DawnWebGPUCache/
+blob_storage/
+Crashpad/
+Local?Storage/
+Session?Storage/
+Service?Worker/
+IndexedDB/
+databases/
+Cookies*
+History
+*.log
+*.pid
+*.lock
+*.sock
+*.old
+*.bak
+*~
+*.tmp
+
+# Claude Code: keep config and skills, never transcripts or live state.
+home/.claude/projects/**
+!home/.claude/projects/-home-ujjwal/
+!home/.claude/projects/-home-ujjwal/memory/
+!home/.claude/projects/-home-ujjwal/memory/**
+home/.claude/history.jsonl
+home/.claude/file-history/
+home/.claude/shell-snapshots/
+home/.claude/telemetry/
+home/.claude/sessions/
+home/.claude/session-env/
+home/.claude/tasks/
+home/.claude/jobs/
+home/.claude/backups/
+home/.claude/daemon*
+
+# Editors: settings and snippets only, never workspace state.
+workspaceStorage/
+globalStorage/
+**/User/History/
+**/User/sync/
+
+# Wallpaper Engine writes an Electron profile alongside its settings.
+wallpapers/wallpaper-engine/blob_storage/
+wallpapers/wallpaper-engine/*Cache*
+
+.DS_Store
+
+# Python bytecode from running the helper scripts.
+__pycache__/
+*.pyc

@@ -1,0 +1,298 @@
+{
+	"overrides": {
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/1980026681": {
+			"volume": 0,
+			"compatibility": "minor",
+			"autoErrors": [
+				"0(76) : warning C7050: \"param_9\" might be used before being initialized"
+			],
+			"lastTested": 1788643536273
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/3578100656": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643566066
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/2853719148": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643566076
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/2970663042": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643566081
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/1699277712": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643571093
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/2622069892": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643571107
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/3666942827": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643571112
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/3463986729": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643576124
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/2321732083": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643576172
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/3680809136": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643576177
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/2933644688": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643581192
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/3537839392": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643581241
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/3164473425": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643581246
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/3593135941": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643586254
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/3593263312": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643586303
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/3162097418": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643586309
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/2913745189": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643591320
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/3286331819": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643591326
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/3678960333": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643591337
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/3595091665": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643596349
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/3027915959": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643596409
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/3467729360": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643596415
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/3313312656": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643601424
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/2958025772": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643601484
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/3622735818": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643601490
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/1436407576": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643606501
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/1989105447": {
+			"volume": 0,
+			"compatibility": "perfect",
+			"lastTested": 1788680619873
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/2656153688": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643606527
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/1706439241": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643607753
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/2973729383": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643611537
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/2092724464": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643611594
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/3346831410": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643621650
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/2104291093": {
+			"volume": 0,
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643616606
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/3203127011": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643616615
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/1695083041": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643616621
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/2175788309": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643621633
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/2352099793": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643621644
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/3181060190": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643626662
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/2493348975": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643626683
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/3659877246": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643626689
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/1520885713": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643631700
+		},
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/3686245041": {
+			"compatibility": "broken",
+			"autoErrors": [
+				"GLFW error 65544: Wayland: Failed to create XKB compose table"
+			],
+			"lastTested": 1788643631710
+		}
+	}
+}

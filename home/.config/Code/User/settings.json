@@ -1,0 +1,18 @@
+{
+    "files.autoSave": "afterDelay",
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.colorCustomizations": {},
+    "sourcery.suggestFixes": true,
+    "sourcery.codeLens": true,
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "claudeCode.preferredLocation": "panel",
+    "claudeCode.environmentVariables": [
+        { "name": "CLAUDE_CODE_USE_BEDROCK", "value": "0" }
+    ],
+    "network.meteredConnection": "off",
+    "claudeNotifier.taskCompleted.sound": "tada",
+    "claudeNotifier.asksQuestion.sound": "notify",
+    "editor.accessibilitySupport": "off"
+,
+  "material-code.primaryColor": "#8F5D3F"
+}

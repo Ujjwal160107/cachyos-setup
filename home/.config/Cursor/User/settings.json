@@ -1,0 +1,9 @@
+{
+    "window.commandCenter": true,
+    "files.autoSave": "afterDelay",
+    "window.autoDetectColorScheme": false,
+    "explorer.confirmDelete": false,
+    "terminal.integrated.sendKeybindingsToShell": true
+,
+  "material-code.primaryColor": "#8F5D3F"
+}

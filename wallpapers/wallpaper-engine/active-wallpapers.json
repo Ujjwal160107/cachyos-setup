@@ -1,0 +1,29 @@
+{
+	"activeWallpapers": {
+		"eDP-1": {
+			"backgroundId": "/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/1989105447",
+			"screen": "eDP-1",
+			"scaling": "fill",
+			"fps": 60,
+			"volume": 0,
+			"silent": false,
+			"noAutomute": false,
+			"noAudioProcessing": false,
+			"disableMouse": false,
+			"disableParallax": false,
+			"disableParticles": false,
+			"noFullscreenPause": false
+		}
+	},
+	"activePlaylists": {},
+	"activePlaylist": null,
+	"appliedHistory": {
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/1980026681": 1788643719067,
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/3346831410": 1788643614477,
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/1989105447": 1788680606906,
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/2104291093": 1788643654420,
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/3595091665": 1788643700900,
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/3463986729": 1788643710348,
+		"/home/ujjwal/.local/share/Steam/steamapps/workshop/content/431960/3203127011": 1788643731480
+	}
+}

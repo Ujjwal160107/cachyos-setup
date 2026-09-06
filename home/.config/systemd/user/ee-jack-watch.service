@@ -1,0 +1,13 @@
+[Unit]
+Description=Switch EasyEffects preset on headphone jack changes
+After=pipewire.service wireplumber.service
+PartOf=pipewire.service
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/ee-jack-watch
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=default.target

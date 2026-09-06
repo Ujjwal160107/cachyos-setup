@@ -1,0 +1,13 @@
+--- a/.config/quickshell/ii/modules/ii/background/Background.qml
++++ b/.config/quickshell/ii/modules/ii/background/Background.qml
+@@ -74,7 +74,9 @@
+         // Layer props
+         screen: modelData
+         exclusionMode: ExclusionMode.Ignore
+-        WlrLayershell.layer: (GlobalStates.screenLocked && !scaleAnim.running) ? WlrLayer.Overlay : WlrLayer.Bottom
++        // Background rather than Bottom while unlocked, so linux-wallpaperengine (bottom layer) stays on
++        // top of this static wallpaper; it still lifts to Overlay for the lock screen.
++        WlrLayershell.layer: (GlobalStates.screenLocked && !scaleAnim.running) ? WlrLayer.Overlay : WlrLayer.Background
+         // WlrLayershell.layer: WlrLayer.Bottom
+         WlrLayershell.namespace: "quickshell:background"
+         anchors {

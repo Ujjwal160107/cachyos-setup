@@ -1,0 +1,11 @@
+--- a/.config/quickshell/ii/panelFamilies/IllogicalImpulseFamily.qml
++++ b/.config/quickshell/ii/panelFamilies/IllogicalImpulseFamily.qml
+@@ -25,6 +25,8 @@
+ 
+ Scope {
+     PanelLoader { extraCondition: !Config.options.bar.vertical; component: Bar {} }
++    // Kept on the "background" layer (see Background.qml) so it sits under linux-wallpaperengine
++    // and only shows on the lock screen, where it carries a static frame of that wallpaper.
+     PanelLoader { component: Background {} }
+     PanelLoader { component: Cheatsheet {} }
+     PanelLoader { extraCondition: Config.options.dock.enable; component: Dock {} }

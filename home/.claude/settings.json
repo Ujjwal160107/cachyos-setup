@@ -1,0 +1,277 @@
+{
+  "env": {
+    "GITHUB_PERSONAL_ACCESS_TOKEN": "<set-me: see docs/04-secrets-and-logins.md>"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(git commit:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git commit *)",
+      "Bash(git checkout:*)",
+      "Bash(git add:*)",
+      "Bash(git add *)",
+      "Bash(gh api *)",
+      "Bash(git branch:*)",
+      "Bash(git push *)",
+      "Bash(pnpm:*)",
+      "Bash(uv run:*)",
+      "Bash(git status:*)",
+      "Bash(uv run *)",
+      "mcp__linear__get_issue",
+      "mcp__linear__list_comments",
+      "Bash(DATABASE_URL=\"postgresql://postgres:postgres@localhost:5432/cruitical\" uv run alembic current)",
+      "mcp__linear__save_comment",
+      "Skill(humanizer)",
+      "Skill(humanizer:*)",
+      "Bash(python -)",
+      "Bash(env)",
+      "Bash(grep -n \"Its header renders the candidate's \\\\`Avatar\\\\`\" apps/web/CLAUDE.md)",
+      "Bash(xargs grep -lE \"system_prompt|SYSTEM_PROMPT|prompt_template|STAGE_PROMPTS|PROMPT_VERSIONS|build_.*prompt|build_.*instructions|build_.*preamble|generate_content|generate_json|ChatCompletion|system_instruction|You are a|Your task is to|## Instructions\")",
+      "Bash(grep -n \"execute_activity\\(\\\\s*$\\\\|execute_activity\\(\" -A1 workflows/passport_analysis.py)",
+      "Bash(\" | head -30)",
+      "Bash(grep -v \"DialogTitle\\\\|SheetTitle\\\\|CardTitle\\\\|title={displayName}\\\\|title={`\" | head -30)",
+      "Bash(node -e ' *)",
+      "Read(//tmp/**)",
+      "Bash(sed -n '118,160p' /tmp/old_ca.py)",
+      "Bash(docker exec *)",
+      "Read(//c/Users/ujjwa/OneDrive/Desktop/cruitical-cru472/apps/backend/**)",
+      "Bash(DATABASE_URL=postgresql://test:test@localhost:5432/test uv run alembic upgrade head)",
+      "Bash(bash __TRACKED_VAR__/scripts/review-package docs/superpowers/plans/2026-08-17-email-identity-validation.md f0c2dbc6e0019aa70fcc1f452ddb210deebabc29 HEAD)",
+      "Bash(grep \"\\\\.py$\")",
+      "Bash(python3 -c ' *)",
+      "Read(//c/Users/ujjwa/OneDrive/Desktop/cruitical-cru472/.superpowers/sdd/2026-08-17-candidate-delete-and-seeking/**)",
+      "Bash(cd \"/home/ujjwal/dev/cruitical-cru472\" && docker exec -i cruitical-postgres psql -U test -d test -t -A -F'|' -c \" *)",
+      "Read(//c/Users/ujjwa/OneDrive/Desktop/cruitical-cru472/**)",
+      "Bash(grep -n \"Email-keyed half\\\\|app_work_trials\\\\` where\\\\|sa_delete\\(model\\).where\" docs/superpowers/plans/2026-08-17-candidate-delete-and-seeking.md)",
+      "Bash(cd \"/home/ujjwal/dev/cruitical-cru472/apps/backend\" && ls .env* 2>/dev/null; grep -rn \"DATABASE_URL\" ../../.env.backend 2>/dev/null | head -3; echo \"---\"; grep -rn \"postgres\" ../../docker-compose.yml | head -20)",
+      "Read(//c/Users/ujjwa/OneDrive/**)",
+      "Bash(DATABASE_URL=\"postgresql://postgres:postgres@localhost:5432/cruitical\" uv run alembic heads)",
+      "Bash(python __TRACKED_VAR__/check_comment_hygiene.py --base fb5f0078)",
+      "Bash(bash __TRACKED_VAR__/scripts/review-package docs/superpowers/plans/2026-08-18-coffee-chat-connection-segments.md a94ef599b7e77349b80d756b09fd24bc4b041137 HEAD)",
+      "Bash(npx vitest *)",
+      "Bash(npx tsc *)",
+      "Bash(echo \"--- tsc exit: $? ---\")",
+      "Bash(echo \"exit $?\")",
+      "Bash(python scripts/check_comment_hygiene.py --base origin/main)",
+      "Bash(python scripts/check_personal_paths.py --base origin/main)",
+      "Bash(DATABASE_URL=postgresql://test:test@localhost:5432/test uv run pytest -q)",
+      "Bash(bash __TRACKED_VAR__/scripts/review-package docs/superpowers/plans/2026-08-18-coffee-chat-connection-segments.md 5a50ae3f HEAD)",
+      "WebFetch(domain:landrecords.karnataka.gov.in)",
+      "Bash(curl -sSk -L --max-time 30 -A Mozilla/5.0 -D - -o /home/ujjwal/AppData/Local/Temp/claude/c--Users-ujjwa-OneDrive-Desktop-cruitical/faaccc44-92c9-4c69-a5f1-6b8ce7839b71/scratchpad/mh.html https://mahabhunakasha.mahabhumi.gov.in)",
+      "Bash(python -c ' *)",
+      "WebFetch(domain:services.ecourts.gov.in)",
+      "Bash(curl -s -L -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\)\" --max-time 45 \"https://services.ecourts.gov.in/ecourtindia_v6/?p=casestatus/index\" -o \"/home/ujjwal/AppData/Local/Temp/claude/c--Users-ujjwa-OneDrive-Desktop-cruitical/faaccc44-92c9-4c69-a5f1-6b8ce7839b71/scratchpad/ecourts_v6.html\" -w \"HTTP %{http_code} size %{size_download}\\\\n\")",
+      "WebFetch(domain:njdg.ecourts.gov.in)",
+      "WebFetch(domain:ecommitteesci.gov.in)",
+      "WebFetch(domain:apisetu.gov.in)",
+      "Bash(curl -s -L --max-time 45 \"https://services.ecourts.gov.in/ecourtindia_v6/?p=casestatus/index\" -H \"User-Agent: Mozilla/5.0\" -o \"/home/ujjwal/AppData/Local/Temp/claude/c--Users-ujjwa-OneDrive-Desktop-cruitical/faaccc44-92c9-4c69-a5f1-6b8ce7839b71/scratchpad/ecourts.html\" -w \"HTTP %{http_code} size=%{size_download}\\\\n\")",
+      "WebFetch(domain:bharatapi.gov.in)",
+      "WebFetch(domain:www.data.gov.in)",
+      "mcp__plugin_playwright_playwright__browser_navigate",
+      "WebFetch(domain:judgments.ecourts.gov.in)",
+      "WebFetch(domain:csharyana.gov.in)",
+      "WebFetch(domain:napix.gov.in)",
+      "WebFetch(domain:github.com)",
+      "Bash(curl -s -L -k --max-time 40 -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\)\" \"https://njdg.ecourts.gov.in/njdg_v3/\" -o njdg_v3.html)",
+      "Bash(echo \"EXIT=$?\")",
+      "mcp__plugin_playwright_playwright__browser_evaluate",
+      "WebFetch(domain:ecourts.gov.in)",
+      "WebFetch(domain:www.pib.gov.in)",
+      "WebFetch(domain:www.google.com)",
+      "WebFetch(domain:cdnbbsr.s3waas.gov.in)",
+      "WebFetch(domain:en.wikipedia.org)",
+      "WebFetch(domain:punjab.data.gov.in)",
+      "Bash(pdftotext -layout webfetch-1787209695430-yda4io.pdf -)",
+      "WebFetch(domain:api.github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:www.devdatalab.org)",
+      "WebFetch(domain:registry.opendata.aws)",
+      "WebFetch(domain:vaad.up.nic.in)",
+      "WebFetch(domain:districts.ecourts.gov.in)",
+      "Bash(gh search *)",
+      "Bash(cd /tmp/tmp.jaICMv8NHM && grep -o -i \".\\\\{200\\\\}captcha.\\\\{200\\\\}\" out.json | head -3)",
+      "Bash(grep -n \"candidate_name=name\\)$\" apps/backend/workflows/candidate_batch.py)",
+      "Bash(grep -rnE '\\\\b[A-Z][A-Z]+\\( [A-Z][A-Z]+\\){2,}\\\\b' core/coffee_chat_segments.py core/coffee_chat.py coffee_chat/orchestrator.py workflows/coffee_chat_session.py activities/coffee_chat.py api/user.py models/domain/coffee_chat.py alembic/versions/1d9edb317034_add_coffee_chat_segments.py)",
+      "Bash(timeout 40 docker ps --format \"{{.Names}}\\\\t{{.Status}}\\\\t{{.Ports}}\")",
+      "Bash(echo \"TSC_EXIT=$?\")",
+      "Bash(sudo pacman *)",
+      "Bash(yay *)",
+      "Bash(makepkg *)",
+      "Bash(hyprctl *)"
+    ],
+    "deny": [
+      "Read(./**/secrets/**)",
+      "Read(./config/credentials.*)",
+      "Bash(rm -rf *)",
+      "Bash(curl * | bash)",
+      "Bash(wget * | sh)",
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "Bash(git reset --hard*)",
+      "Bash(git push origin main*)",
+      "Bash(git push origin master*)",
+      "Bash(git push * main)",
+      "Bash(git push * master)",
+      "Bash(git branch -D*)",
+      "Bash(git clean -fd*)"
+    ],
+    "defaultMode": "auto"
+  },
+  "model": "opus[1m]",
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "permission_prompt|elicitation_dialog|idle_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/home/ujjwal/.claude/notify.js\" # claude-code-notifier"
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/home/ujjwal/.claude/notify.js\" # claude-code-notifier"
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/home/ujjwal/.claude/hooks/claude-notifier-on-subagent-stop.js\""
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/home/ujjwal/.claude/notify.js\" # claude-code-notifier"
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/home/ujjwal/.claude/hooks/claude-notifier-on-stop.js\""
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/home/ujjwal/.claude/hooks/claude-notifier-on-permission.js\""
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "AskUserQuestion",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/home/ujjwal/.claude/hooks/claude-notifier-on-question.js\""
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/home/ujjwal/.claude/hooks/claude-notifier-on-prompt.js\""
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "evals-skills@hamelsmu-evals-skills": true,
+    "context7@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "hamelsmu-evals-skills": {
+      "source": {
+        "source": "github",
+        "repo": "hamelsmu/evals-skills"
+      }
+    },
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
+      }
+    }
+  },
+  "outputStyle": "Plain",
+  "effortLevel": "xhigh",
+  "modelSettings": {
+    "claude-fable-5-1": {
+      "effortLevel": "xhigh"
+    },
+    "claude-sonnet-5": {
+      "effortLevel": "high"
+    }
+  },
+  "autoUpdatesChannel": "latest",
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "dark",
+  "inputNeededNotifEnabled": true,
+  "agentPushNotifEnabled": true,
+  "autoMode": {
+    "allow": [
+      "$defaults",
+      "Bash(uv run ruff check:*)",
+      "Bash(uv run pytest:*)",
+      "Bash(uv run alembic upgrade head)",
+      "Bash(pnpm --filter web test:*)",
+      "Bash(gh pr view:*)"
+    ],
+    "soft_deny": [
+      "$defaults",
+      "Bash(elevenlabs agents push:*)",
+      "Bash(uv run alembic downgrade:*)"
+    ],
+    "environment": [
+      "### Org-wide",
+      "**Organization**: Cruitical (GitHub org `Cruitical`)",
+      "**Cloud provider(s)**: AWS (two accounts, deliberately not in an Organization \u2014 infra `826671498625` and bedrock `744248319375`), Cloudflare (Workers, R2, Pages), plus managed data services: Neon PostgreSQL, Upstash Redis, Temporal Cloud, WorkOS",
+      "**Repository visibility**: private \u2014 `Cruitical/cruitical` is private per the authenticated gh check; sibling org repos `cruitical-landing-page` and `kb` are also private. No PUBLIC org repos observed.",
+      "**Internal sharing / snippet hosting**: None configured \u2014 treat public paste/gist services as outside the trust boundary",
+      "**Secrets management**: AWS Secrets Manager + SSM (backend), Cloudflare dashboard + `wrangler.jsonc` secrets (frontend), GitHub repo secrets for CI/CD (`CLOUDFLARE_API_TOKEN`, `DATABASE_URL`, `SLACK_WEBHOOK_URL` referenced by name only)",
+      "**Default / protected branches**: default branch `main`; gh reports rulesets not queryable here and no classic protected branches listed, so branch protection state is unconfirmed \u2014 repo docs state all changes reach `main` via pull request with CI gates, and `main` is production",
+      "**CI/CD deploy targets**: GitHub Actions workflows \u2014 `Deploy API` (ECR build/push, `terraform apply` of `infra/application/` only, ECS Fargate, then `alembic upgrade head` on the runner), `deploy-web.yml` (Cloudflare Workers via `@opennextjs/cloudflare`); operator-applied Terraform roots `infra/bootstrap/`, `infra/bedrock/`, `infra/assessment/`, `infra/assessment-box/` are never applied by CI",
+      "**Network posture**: AWS ALB (idle timeout 3600s for voice) in front of ECS Fargate behind WAF; browser uploads bypass the WAF by going straight to R2 via presigned PUT; cross-account access via `sts:AssumeRole` only; standing posture is GitHub OIDC with no long-lived AWS credentials",
+      "**Source control**: GitHub org `Cruitical` \u2014 `Cruitical/cruitical` (this repo, remote `https://github.com/Cruitical/cruitical.git`) and the sibling private repos `Cruitical/cruitical-landing-page` and `Cruitical/kb`. A personal repo `github.com/Ujjwal160107/Casino-` exists under the home directory and is NOT org context.",
+      "**Trusted internal domains**: `api.cruitical.com` (REST + WebSocket backend), `www.cruitical.com` / `cruitical.com` (marketing site)",
+      "**Trusted cloud buckets**: None configured",
+      "**Key internal services**: FastAPI API on ECS Fargate + Temporal Worker, Temporal Cloud (workflows, task queues), Neon PostgreSQL, Upstash Redis, Cloudflare R2 object storage, Cloudflare Workers (Next.js SSR), WorkOS AuthKit, AWS Bedrock + AgentCore (separate account), Gemini via GCP Workload Identity Federation, ElevenLabs (`api.elevenlabs.io`), SES, CloudWatch alarms (`cruitical-*`) routed via EventBridge to the `cruitical-alerts` SNS topic",
+      "**Internal package registry**: None configured \u2014 dependencies come from public registries (`registry.npmjs.org`, PyPI via `uv`/`pip`)",
+      "**Sensitive data locations & audiences**: production Neon Postgres and R2 hold candidate personal data (r\u00e9sum\u00e9s, coffee-chat transcripts, names, profile pictures, employer/institution names as typed); a SELECT-everything read-only role still sees all production PII, so treat everything loaded through `apps/backend/scripts/_prod_readonly.py` as production personal data. Root `.env.prod.read-only`, `.env.backend`, `.env.postgres`, `.env.web`, `apps/web/.env.local`, `apps/backend/.env.eval`, `apps/backend/alt-wif-credential-config.json` and `wif_credential_config.json` hold credentials. Customer- and candidate-authored text (r\u00e9sum\u00e9 lines, role titles, job descriptions, recruiter notes, company/institution names) must never be committed \u2014 only text we authored plus opaque ids. The `Cruitical/kb` repo holds fundraising, investor, customer and financial material. Share only with audiences cleared at the [named+specifics] bar.",
+      "**Data retention / declassification**: git history is permanent \u2014 a committed user-derived artefact cannot be honoured for erasure without a history rewrite, so committed content is an allowlist of one directory with everything else gitignored. Soft-deleted companies/roles/candidates purge after a 30-day grace period via `PurgeSoftDeletedWorkflow`; Redis sessions 30-day TTL, preview/deep analysis caches 7-day TTL. Bedrock model-invocation logging and AgentCore request/response logging stay OFF so prompts are not written into a second store outside retention rules.",
+      "**Sensitive remote targets**: production Neon PostgreSQL and Cloudflare R2 (read-only via the `_prod_readonly.py` seam and the `cruitical_eval_ro` role / read-only R2 token; writes are server-refused), production ECS/ALB/WAF/SES in AWS infra account `826671498625`, the Bedrock account `744248319375`, Temporal Cloud namespaces, Upstash Redis, plus any namespace, host, or container whose name carries `prod` or `production` as a whole word or name segment (hyphen/underscore/dot-delimited \u2014 e.g. matches `prod-db`, not `producer`)",
+      "**Protected deployment namespaces / environments**: production ECS services and task definitions in `infra/application/` (CI-applied), the operator-applied roots `infra/bootstrap/`, `infra/bedrock/`, `infra/assessment/`, `infra/assessment-box/`, the Cloudflare Workers production deployment, and `main` (production branch)",
+      "**Protected IaC scopes**: IAM/RBAC (`infra/bootstrap/iam.tf` deploy role, `infra/bedrock/iam.tf` model allowlist, cross-account trust policies), networking (VPC, security groups, ALB, WAF), Terraform state in `s3://cruitical-terraform-state-826671498625` and its `.tflock` objects, `allowed_account_ids` provider guards, quota/inference-profile and node-pool style resources, and anything whose name or tag carries `prod` or `production` as a whole word or name segment",
+      "### User-specific",
+      "**Primary use of Claude Code**: software development on the Cruitical monorepo \u2014 Python/FastAPI backend with `uv`, Next.js frontend with `pnpm`, Terraform infra, Docker Compose local stack, Alembic migrations",
+      "**Trusted repo**: `Cruitical/cruitical` at `/home/ujjwal/dev/cruitical`, remote `https://github.com/Cruitical/cruitical.git` (private). Confidential material is fine in this private repo; secrets and candidate/customer-authored text are never cleared into it by its visibility (see Definitions).",
+      "**Org-specific CLIs**: `uv` (backend lint/test/alembic runner, 41x in project transcripts, 19x in shell history), `elevenlabs` (agent export/push, 102x in shell history), `gh` (16x), `alembic` (3x); routine local tooling: `pnpm`, `npm`, `npx`, `docker` / `docker-compose`, `python`, `node`, `winget`, `powershell`, `taskkill`, `where`"
+    ]
+  }
+}

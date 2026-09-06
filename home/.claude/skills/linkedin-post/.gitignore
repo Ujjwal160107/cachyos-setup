@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.DS_Store
+*.local.md
+.private-terms
+
+# Harness-generated Claude Code state. A settings.json here accumulates a
+# permission allowlist full of absolute paths that embed the local username and
+# a session id. None of it is part of the skill; none of it belongs in a public
+# repo.
+.claude/

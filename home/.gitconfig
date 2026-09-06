@@ -1,0 +1,13 @@
+[user]
+	email = ujjwalt616@gmail.com
+	name = Ujjwal
+[credential "https://git.heroku.com"]
+	provider = generic
+[init]
+	defaultBranch = main
+[fetch]
+	prune = true
+[pager]
+	branch = false
+[credential]
+	helper = store

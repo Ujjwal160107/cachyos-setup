@@ -1,0 +1,13 @@
+{
+  "files.autoSave": "afterDelay",
+  "security.workspace.trust.untrustedFiles": "open",
+  "workbench.colorCustomizations": {},
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+  "sourcery.suggestFixes": true,
+  "sourcery.codeLens": true,
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "claudeCode.preferredLocation": "panel"
+,
+  "material-code.primaryColor": "#8F5D3F"
+}
