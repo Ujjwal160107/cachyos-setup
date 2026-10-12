@@ -1,9 +1,0 @@
-[sie][Limiter#0]
-attack=1
-lookahead=3
-threshold=-1
-
-[soe][Limiter#0]
-attack=3
-release=10
-threshold=-1
