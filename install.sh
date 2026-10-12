@@ -105,5 +105,4 @@ if (( DRY_RUN == 0 )) && [[ -d "${REPO}/home/.config/systemd/user" ]]; then
   echo
   echo "Reloading user systemd units..."
   systemctl --user daemon-reload || true
-  echo "Enable the audio jack watcher with: systemctl --user enable --now ee-jack-watch.service"
 fi

@@ -89,9 +89,9 @@ cd ~/.local/share/dots-hyprland && ./setup
 
 Then, every time:
 
-1. Reapply the two QML patches — see
+1. Reapply the three local patches — see
    [02-desktop.md](02-desktop.md#reapplying-after-an-ii-update). The animated
-   wallpaper breaks silently without them.
+   wallpaper breaks silently without them, and idle-suspend on AC comes back.
 2. `./sync.sh` to pull the new upstream tree into the repo.
 3. Update the pinned commit in `02-desktop.md` **and** in
    [01-fresh-install.md](01-fresh-install.md) — both name it.

@@ -1,0 +1,13 @@
+#!/bin/sh
+# Run the given command only while on battery; do nothing while charging.
+# hypridle listeners have no conditionals, so every "...but not on the charger"
+# idle action is routed through here.
+# POWER_SUPPLY_DIR is overridable so the check can be tested against a fake sysfs.
+
+dir=${POWER_SUPPLY_DIR:-/sys/class/power_supply}
+for ps in "$dir"/*; do
+    case $(cat "$ps/type" 2>/dev/null) in
+        Mains|USB) [ "$(cat "$ps/online" 2>/dev/null)" = 1 ] && exit 0 ;;
+    esac
+done
+exec "$@"

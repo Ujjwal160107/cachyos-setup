@@ -14,7 +14,6 @@ desktop:.config/noctalia
 desktop:.config/uwsm
 desktop:.config/xdg-desktop-portal
 desktop:.config/satty
-desktop:.config/systemd/user/ee-jack-watch.service
 
 shell:.zshrc
 shell:.bashrc
@@ -23,9 +22,10 @@ shell:.gitconfig
 shell:.config/zshrc.d
 shell:.config/fish
 shell:.config/starship.toml
+shell:.config/oh-my-posh
+shell:.config/fastfetch
 shell:.config/git/ignore
-shell:.local/bin/ee-jack-watch
-shell:.local/bin/ee-preset-cycle
+shell:.local/bin/unless-ac
 
 terminal:.config/kitty
 terminal:.config/alacritty
@@ -53,7 +53,6 @@ theme:.icons/default
 
 audio:.config/pipewire
 audio:.config/wireplumber
-audio:.config/easyeffects
 audio:.config/pavucontrol-qt
 
 apps:.config/mpv

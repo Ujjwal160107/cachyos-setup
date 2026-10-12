@@ -1,0 +1,4 @@
+# Intel AX201 Bluetooth: USB autosuspend causes the BT audio link to briefly
+# stall and re-establish every few minutes, heard as crackling/pops on
+# Bluetooth audio output. Keep this controller fully powered.
+ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="8087", ATTR{idProduct}=="0026", TEST=="power/control", ATTR{power/control}="on"

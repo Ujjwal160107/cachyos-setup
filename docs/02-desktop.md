@@ -42,11 +42,11 @@ startup problems; Hyprland is launched directly by greetd instead. Say no when
 asked. If you say yes and the session fails to come up, that is the first thing
 to undo.
 
-## The two local patches
+## The local patches
 
-Exactly two QML files differ from upstream. Both exist for the same reason: to
+Three files differ from upstream. The two QML files exist for the same reason: to
 get **linux-wallpaperengine** (animated wallpapers) to render underneath the ii
-shell instead of being hidden by it.
+shell instead of being hidden by it. The third stops idle-suspend on AC power.
 
 `patches/ii-dots/` holds them as unified diffs against the pinned commit.
 
@@ -64,18 +64,33 @@ A comment recording why the `Background` panel loader is left alone — so the n
 person reading it (you, in a year) does not "fix" the layer back to `Bottom` and
 quietly break the animated wallpaper.
 
+### `hypridle.conf`
+
+Upstream locks at 5 minutes, blanks the screen at 10 and suspends at 15,
+regardless of power source. The patch routes all three through
+`~/.local/bin/unless-ac` (tracked in the `shell` group), which runs its
+arguments only while on battery and does nothing while any mains or USB-C
+supply reports online. On the charger the laptop stays awake, lit and unlocked.
+
+Keep the `$unless_ac` definition free of a trailing `#` comment: hyprlang
+carries the comment into the value, and used mid-line it would comment out the
+rest of the action.
+
 ### Reapplying after an ii update
 
 **This is the thing that bites.** `./setup install` rsyncs `~/.config/quickshell`
-with `--delete`, so both patched files are replaced wholesale. The animated
+with `--delete`, so both patched files are replaced wholesale. It also overwrites
+`hypridle.conf` (keeping the old copy as `hypridle.conf.old`), so the laptop goes
+back to locking, blanking and suspending on the charger. The animated
 wallpaper then silently stops showing. There is no error; the desktop just goes
 back to a static background, and it is not obvious why.
 
 ```bash
-cd ~/.config
+cd ~   # the patch headers are relative to $HOME
 git -C ~/.local/share/dots-hyprland pull      # or however you update ii
 patch -p1 < ~/dev/cachyos-setup/patches/ii-dots/Background.qml.patch
 patch -p1 < ~/dev/cachyos-setup/patches/ii-dots/IllogicalImpulseFamily.qml.patch
+patch -p1 < ~/dev/cachyos-setup/patches/ii-dots/hypridle.conf.patch
 ```
 
 If `patch` rejects a hunk, upstream changed that region. Open the `.rej` file,

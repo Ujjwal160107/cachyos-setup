@@ -56,24 +56,33 @@ Change the login shell after a rebuild with `chsh -s /usr/bin/zsh`.
 
 ## Audio
 
-PipeWire with WirePlumber, plus **EasyEffects** for output processing. Presets
-are tracked in `~/.config/easyeffects/`.
+PipeWire with WirePlumber, native — no EasyEffects or other effects layer.
+Ran EasyEffects until 2026-09-14; it degraded both playback and mic quality,
+so it and its jack-watch/preset-cycle scripts were removed.
 
-Two local scripts in `~/.local/bin/` support this:
-
-- `ee-jack-watch` — watches for headphone jack changes and switches the
-  EasyEffects preset. Runs as the `ee-jack-watch.service` user unit.
-- `ee-preset-cycle` — cycles presets by hand, bound to a key in the Hyprland
-  config.
-
-Enable the watcher after `install.sh`:
-
-```bash
-systemctl --user enable --now ee-jack-watch.service
-```
+Config lives under `~/.config/pipewire/` and `~/.config/wireplumber/`
+(tracked in the `audio` group): 48 kHz graph clock following the source rate,
+resampler quality 10, and Bluetooth codec preferences (AAC/SBC-XQ) for A2DP.
 
 Bluetooth audio works out of the box via `bluez` — the default sink on this
 machine was a paired Bluetooth headset, which you will need to re-pair.
+
+The internal mic's capture gain was factory-maxed (Internal Mic Boost + Capture
+both at +30dB, clipping in silence) — fixed via `pactl set-source-volume` (not
+raw `amixer`, see [01-fresh-install.md](01-fresh-install.md) for why) and saved
+to `/var/lib/alsa/asound.state`.
+
+The Intel AX201's Bluetooth USB autosuspend caused periodic audio-transport
+failures (crackling every few minutes) — disabled via the udev rule in
+[9. Services](01-fresh-install.md#9-services).
+
+A Bluetooth headset used as both output and mic hits a hard protocol limit:
+Classic Bluetooth (no LE Audio on this earbud) can't do full-quality audio in
+both directions at once — using the mic drops *all* audio, output included, to
+8kHz until the mic is released. There's no config fix; use the laptop's own
+mic for calls (already the default) and keep the headset mic permission
+pointed at it in each app/site (Discord, Meet, browser tabs remember this
+per-site and won't follow the OS default once set explicitly).
 
 ## Wallpapers
 

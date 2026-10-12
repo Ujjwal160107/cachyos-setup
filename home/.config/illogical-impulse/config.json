@@ -459,10 +459,6 @@
           },
           {
             "size": 1,
-            "type": "easyEffects"
-          },
-          {
-            "size": 1,
             "type": "powerProfile"
           },
           {
@@ -516,7 +512,6 @@
       "toggles": [
         "network",
         "bluetooth",
-        "easyEffects",
         "powerProfile",
         "idleInhibitor",
         "nightLight",

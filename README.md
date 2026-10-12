@@ -30,7 +30,7 @@ order matters, and `01-fresh-install.md` is that order.
 | | |
 |---|---|
 | [01-fresh-install.md](docs/01-fresh-install.md) | Blank disk to working desktop, in order |
-| [02-desktop.md](docs/02-desktop.md) | Hyprland, ii dots, the two local QML patches |
+| [02-desktop.md](docs/02-desktop.md) | Hyprland, ii dots, the local patches |
 | [03-apps.md](docs/03-apps.md) | Per-app setup, editors, wallpapers |
 | [04-secrets-and-logins.md](docs/04-secrets-and-logins.md) | What is deliberately missing and how to restore it |
 | [05-hardware.md](docs/05-hardware.md) | This specific machine: GPU, disks, dual boot |
@@ -47,7 +47,7 @@ home/                     mirrors $HOME exactly, so a path here is its path ther
 packages/                 pacman / AUR / flatpak lists + restore.sh
 patches/ii-dots/          local changes to upstream ii, as re-appliable patches
 wallpapers/               static images + Wallpaper Engine workshop manifest
-system/etc/               system config worth keeping (greetd)
+system/etc/               system config worth keeping (greetd, udev)
 docs/                     the guides above
 ```
 
