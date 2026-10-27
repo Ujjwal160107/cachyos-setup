@@ -124,15 +124,6 @@ sudo systemctl enable greetd.service
 sudo systemctl enable --now bluetooth ufw tailscaled docker
 ```
 
-Closing the lid suspends even on mains power by default. This drop-in leaves the
-machine running when the lid shuts while plugged in, and keeps the usual suspend
-on battery:
-
-```bash
-sudo cp system/etc/systemd/logind.conf.d/10-lid-on-ac.conf /etc/systemd/logind.conf.d/
-sudo systemctl reload systemd-logind
-```
-
 The Intel AX201's Bluetooth USB interface autosuspends by default, which
 periodically stalls an active Bluetooth audio link — heard as crackling/pops
 every few minutes on Bluetooth headphones/earbuds. Keep it fully powered:

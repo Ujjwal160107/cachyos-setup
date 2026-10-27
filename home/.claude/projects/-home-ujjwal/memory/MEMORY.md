@@ -5,7 +5,7 @@
 - [ii dock magnify headroom](dock-magnify-headroom.md) — hover-magnify clipping fix; QML anchor gotcha; dock.height 48, iconSize 32
 - [No Mac-style desktop](no-mac-style-desktop.md) — user rejected a macOS cursor/dock change on 2026-09-07; don't reapply without confirming
 - [Wifi failover to hotspot](wifi-failover.md) — T-VIT dies ~13:29 while staying associated; systemd user timer switches to vivo Y39 5G, switch back is manual
-- [No idle actions on AC](idle-on-ac.md) — unless-ac gates hypridle lock/blank/suspend to battery; lid close ignored on mains; the no-lock part is deliberate
+- [No idle actions on AC](idle-on-ac.md) — unless-ac gates hypridle lock/blank/suspend to battery; lid-ignore rule removed 2026-10-27 (lid wouldn't wake), don't re-add; the no-lock part is deliberate
 - [VS Code OOM closes](vscode-oom-close.md) — vitest 6.2 GB + OOMPolicy=stop killed the editor; drop-in fix not in cachyos-setup yet
 - [EasyEffects removed](easyeffects-removed.md) — uninstalled 2026-09-14, native PipeWire/WirePlumber audio; repo edits pending commit in cachyos-setup
 - [Internal mic gain fix](internal-mic-gain-fix.md) — merged Boost+Capture control reverts on reboot unless set via `pactl set-source-volume`, not raw amixer
