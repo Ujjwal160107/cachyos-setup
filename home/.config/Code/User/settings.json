@@ -14,5 +14,7 @@
     "claudeNotifier.asksQuestion.sound": "notify",
     "editor.accessibilitySupport": "off"
 ,
-  "material-code.primaryColor": "#8F5D3F"
+"material-code.primaryColor": "#6D6E7A",
+"gitlens.mode.active": "zen",
+"terminal.integrated.fontFamily": "'ComicShannsMono Nerd Font Mono', monospace"
 }

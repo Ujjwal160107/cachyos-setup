@@ -1,11 +1,11 @@
 adw-gtk-theme-git
-antigravity-ide
 breeze-plus
 bun-bin
 darkly-bin
+devin-desktop
 google-chrome
 google-cloud-cli
-heroku-cli
+granola
 html2markdown
 illogical-impulse-audio
 illogical-impulse-backlight
@@ -24,7 +24,7 @@ illogical-impulse-widgets
 linux-wallpaper-engine-ux
 linux-wallpaperengine-git
 otf-space-grotesk
-postman-bin
+qdirstat
 qt6-avif-image-plugin
 slack-desktop
 spotify
@@ -33,3 +33,5 @@ ttf-readex-pro
 ttf-rubik-vf
 ttf-twemoji
 visual-studio-code-bin
+whitesur-icon-theme
+yay-bin

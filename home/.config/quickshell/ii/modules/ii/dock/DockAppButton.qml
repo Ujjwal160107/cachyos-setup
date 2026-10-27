@@ -12,7 +12,9 @@ DockButton {
     property var appToplevel
     property var appListRoot
     property int lastFocused: -1
-    property real iconSize: 35
+    // The icon fills the button's content box, so derive the size from that rather than
+    // a fixed number — otherwise the texture is rasterised for the wrong dimensions.
+    property real iconSize: width - padding * 2
     property real countDotWidth: 10
     property real countDotHeight: 4
     property bool appIsActive: appToplevel.toplevels.find(t => (t.activated == true)) !== undefined
@@ -21,6 +23,26 @@ DockButton {
     property var desktopEntry: DesktopEntries.heuristicLookup(appToplevel.appId)
     enabled: !isSeparator
     implicitWidth: isSeparator ? 1 : implicitHeight - topInset - bottomInset
+
+    // Raised-cosine falloff from the cursor's distance to this icon: 1.0 at rest,
+    // ramping smoothly up to magnifyMaxScale directly under the cursor, and back
+    // down to 1.0 at magnifyRadius px away. Continuous in both value and slope, so
+    // neighboring icons ease in and out together instead of a single icon snapping.
+    readonly property real _cursorDist: isSeparator ? appListRoot.magnifyRadius + 1 : appListRoot.distanceToCursor(root)
+    readonly property real _falloff: 0.5 * (1 + Math.cos(Math.PI * Math.min(_cursorDist, appListRoot.magnifyRadius) / appListRoot.magnifyRadius))
+    scale: 1 + (appListRoot.magnifyMaxScale - 1) * _falloff
+    transformOrigin: Item.Bottom
+    Behavior on scale {
+        NumberAnimation {
+            duration: 90
+            easing.type: Easing.OutQuad
+        }
+    }
+
+    // Default Control padding (6) leaves the icon at ~63% of the pill height, which reads
+    // as undersized next to a macOS dock. 4 puts it around 70% without crowding the
+    // indicator dots against the pill's bottom edge.
+    padding: 4
 
     Connections {
         target: DesktopEntries
@@ -93,7 +115,12 @@ DockButton {
                 active: !root.isSeparator
                 sourceComponent: IconImage {
                     source: Quickshell.iconPath(AppSearch.guessIcon(appToplevel.appId), "image-missing")
-                    implicitSize: root.iconSize
+                    // Rasterise at the magnified size. Hover scales the whole button by
+                    // magnifyMaxScale, so a texture loaded at rest size would be blown up
+                    // past its own resolution and go blurry under the cursor.
+                    implicitSize: Math.ceil(root.iconSize * appListRoot.magnifyMaxScale)
+                    smooth: true
+                    mipmap: true
                 }
             }
 

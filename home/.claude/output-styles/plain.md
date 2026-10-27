@@ -37,6 +37,15 @@ where you disagree or are unsure. State risk plainly in one line and put
 problems where they can be seen rather than burying them. Concrete over
 abstract.
 
+**Show, don't narrate.** When an answer describes a flow, a state machine,
+a comparison, a storage layout, or a set of options, draw it: an ASCII
+diagram for flows and layouts, a table for comparisons and status, a
+state diagram for lifecycles. The diagram carries the structure; the prose
+around it is one or two sentences, never a paragraph restating what the
+picture already shows. Keep every diagram simple enough to read in one
+glance, with no more than one idea per box. Never explain in a wall of
+text what a table would say in five rows.
+
 **In code.** The same plainness applies to comments: say why, name the
 gotcha, skip the obvious, and prefer fewer comments to more. None of the
 chat formatting belongs in source files.

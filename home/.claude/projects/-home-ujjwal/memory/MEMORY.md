@@ -1,4 +1,15 @@
-- [Windows to CachyOS migration (Sep 2026)](windows-migration-2026-09.md) — repos in ~/dev, HTTPS remotes, SSH keys are Antra1705's, /mnt/win read-only
-- [ii dots install](ii-dots-install.md) — end-4 illogical-impulse installed 2026-09-06; backup dir, UWSM caveat, archived waybar stub
+- [Windows to CachyOS migration (Sep 2026)](windows-migration-2026-09.md) — repos in ~/dev, HTTPS remotes, SSH keys are Antra1705's, /mnt/win rw (ntfs-3g) since 2026-10-24
+- [ii dots install](ii-dots-install.md) — end-4 illogical-impulse installed 2026-09-06; source in ~/.local/share, three patches to reapply on update, hyprctl dispatch takes Lua
 - [Wallpaper Engine startup](wallpaper-engine-setup.md) — launcher script, GUI autostart off, two ii QML patches lost on ii update
 - [CachyOS setup repo](cachyos-setup-repo.md) — private rebuild repo at ~/dev/cachyos-setup; manifest.txt drives install.sh/sync.sh; install.sh not yet run here
+- [ii dock magnify headroom](dock-magnify-headroom.md) — hover-magnify clipping fix; QML anchor gotcha; dock.height 48, iconSize 32
+- [No Mac-style desktop](no-mac-style-desktop.md) — user rejected a macOS cursor/dock change on 2026-09-07; don't reapply without confirming
+- [Wifi failover to hotspot](wifi-failover.md) — T-VIT dies ~13:29 while staying associated; systemd user timer switches to vivo Y39 5G, switch back is manual
+- [No idle actions on AC](idle-on-ac.md) — unless-ac gates hypridle lock/blank/suspend to battery; lid close ignored on mains; the no-lock part is deliberate
+- [VS Code OOM closes](vscode-oom-close.md) — vitest 6.2 GB + OOMPolicy=stop killed the editor; drop-in fix not in cachyos-setup yet
+- [EasyEffects removed](easyeffects-removed.md) — uninstalled 2026-09-14, native PipeWire/WirePlumber audio; repo edits pending commit in cachyos-setup
+- [Internal mic gain fix](internal-mic-gain-fix.md) — merged Boost+Capture control reverts on reboot unless set via `pactl set-source-volume`, not raw amixer
+- [Bluetooth audio crackling fix](bt-audio-crackling-fix.md) — Intel AX201 USB autosuspend was killing the BT transport every few minutes; udev rule forces power on
+- [oh-my-posh prompt](oh-my-posh-prompt.md) — marcduiker theme in fish/zsh/bash, p10k hooks stripped in zshrc, ComicShannsMono Nerd Font Mono
+- [CN literature survey project](cn-lit-survey-project.md) — ~/CN-Project (renamed from ~/Project): 98 verified papers, workbooks, Review 2 deck, manuscript draft 2026-10-26; PACM ruling pending
+- [Windows games on Linux](windows-games-on-linux.md) — Steam NTFS library + Lutris in place; fstab rw ntfs-3g; Fast Startup must stay off; double-click .exe via run-exe handler; campus IP hits GitHub rate limit

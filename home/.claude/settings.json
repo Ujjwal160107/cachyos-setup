@@ -1,6 +1,8 @@
 {
   "env": {
-    "GITHUB_PERSONAL_ACCESS_TOKEN": "<set-me: see docs/04-secrets-and-logins.md>"
+    "GITHUB_PERSONAL_ACCESS_TOKEN": "<set-me: see docs/04-secrets-and-logins.md>",
+    "PYTEST_XDIST_AUTO_NUM_WORKERS": "6",
+    "PYRIGHT_THREADS": "4"
   },
   "permissions": {
     "allow": [
@@ -118,7 +120,7 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "claude-fable-5-1[1m]",
+  "model": "sonnet",
   "hooks": {
     "Notification": [
       {
@@ -208,7 +210,9 @@
     "evals-skills@hamelsmu-evals-skills": true,
     "context7@claude-plugins-official": true,
     "playwright@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true
+    "superpowers@claude-plugins-official": true,
+    "cache-keeper@nateherk-mods": true,
+    "figma@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "hamelsmu-evals-skills": {
@@ -222,13 +226,19 @@
         "source": "github",
         "repo": "anthropics/claude-plugins-official"
       }
+    },
+    "nateherk-mods": {
+      "source": {
+        "source": "github",
+        "repo": "nateherkai/claude-code-mods"
+      }
     }
   },
   "outputStyle": "Plain",
   "spinnerVerbs": {
     "mode": "replace",
     "verbs": [
-      "Vultr \u2014 Deploy Apps Quickly With 32 Worldwide Data Centers"
+      "BoratStudio by WunderCorp, Inc \u2014 #1 exporter of potassium (and agents) - builderstudio.dev"
     ]
   },
   "effortLevel": "xhigh",
@@ -238,6 +248,15 @@
     },
     "claude-sonnet-5": {
       "effortLevel": "high"
+    },
+    "claude-opus-5": {
+      "effortLevel": "high"
+    },
+    "claude-opus-5-5": {
+      "effortLevel": "high"
+    },
+    "claude-sonnet-5-5": {
+      "effortLevel": "xhigh"
     }
   },
   "autoUpdatesChannel": "latest",

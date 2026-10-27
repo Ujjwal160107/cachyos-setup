@@ -3,18 +3,18 @@ if status is-interactive
     # No greeting
     set fish_greeting
 
-    # Use starship
-    function starship_transient_prompt_func
-        starship module character
-    end
+    # Prompt: oh-my-posh (marcduiker). Transient prompt is set in the theme.
     if test "$TERM" != "linux"
-        starship init fish | source
-        enable_transience
+        oh-my-posh init fish --config ~/.config/oh-my-posh/marcduiker.omp.json | source
     end
     
     # Colors
     if test -f ~/.local/state/quickshell/user/generated/terminal/sequences.txt
         cat ~/.local/state/quickshell/user/generated/terminal/sequences.txt
+        # ii writes this file with the final OSC terminator cut off (it ends on
+        # a bare ESC). Without this the terminal stays inside that OSC string
+        # and silently swallows whatever the shell prints next.
+        printf "\033\\\\"
     end
 
     # Aliases
@@ -29,5 +29,13 @@ if status is-interactive
     end
     if test "$TERM" = "xterm-kitty"
         alias ssh 'kitten ssh'
+    end
+
+    # Greeting: only in a fresh terminal. The marker is exported, so nested
+    # shells (subshells, tmux panes, shells Claude Code spawns) inherit it and
+    # stay quiet. A new kitty window/tab starts from kitty's env, so it prints.
+    if not set -q __fastfetch_shown
+        set -gx __fastfetch_shown 1
+        fastfetch
     end
 end

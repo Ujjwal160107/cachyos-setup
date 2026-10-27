@@ -32,10 +32,22 @@ carelessly during a reinstall is how you lose the Windows side.
 There is no separate `/home` — it lives on root. Back up `~` before any
 reinstall, because reformatting root takes your home with it.
 
-`/mnt/win` is mounted **read-only** on purpose. Windows fast-startup leaves the
-NTFS filesystem in a dirty state, and writing to it from Linux can corrupt it.
-Leave it read-only unless you have fully shut Windows down (not hibernated) and
-know what you are doing.
+`/mnt/win` is mounted **read-write** with `ntfs-3g` (since 2026-10-24) so Steam
+and Lutris can run the Windows games in place:
+
+```
+UUID=482A027A2A0264F2  /mnt/win  ntfs-3g  rw,uid=1000,gid=1000,umask=022,exec,windows_names,noatime,nofail,x-systemd.automount  0 0
+```
+
+Use `ntfs-3g`, not the kernel `ntfs3` driver: Steam's runtime is not expected
+to work on `ntfs3`, and `ntfs-3g` refuses a read-write mount while Windows is
+hibernated. **Windows Fast Startup must stay off**, because it leaves the disk
+hibernated and writing to it from Linux can corrupt it. `windows_names` blocks
+filenames Windows cannot read.
+
+Proton prefixes must not live on NTFS (Wine creates names like `c:`), so
+`steamapps/compatdata` in the Windows library is a symlink to
+`~/.local/share/Steam/steamapps/compatdata`.
 
 ## Bootloader
 

@@ -4,7 +4,6 @@ alacritty
 alsa-firmware
 alsa-plugins
 alsa-utils
-antigravity-ide
 awesome-terminal-fonts
 base
 base-devel
@@ -40,11 +39,10 @@ cachyos-zsh-config
 calf
 cantarell-fonts
 chwd
-claude-desktop
 cpupower
 cryptsetup
-cursor-bin
 device-mapper
+devin-desktop
 diffutils
 discord
 dmidecode
@@ -64,7 +62,6 @@ exfatprogs
 f2fs-tools
 fastfetch
 ffmpegthumbnailer
-firefox
 flatpak
 fsarchiver
 git
@@ -72,6 +69,7 @@ github-cli
 glances
 google-chrome
 google-cloud-cli
+granola
 grub
 grub-hook
 gst-libav
@@ -79,7 +77,6 @@ gst-plugin-pipewire
 gst-plugins-bad
 gst-plugins-ugly
 hdparm
-heroku-cli
 hwdetect
 hwinfo
 illogical-impulse-audio
@@ -110,6 +107,7 @@ lib32-vulkan-icd-loader
 libdvdcss
 libgsf
 libopenraw
+libreoffice-still
 libva-nvidia-driver
 lilv-tools
 linux-cachyos
@@ -125,6 +123,7 @@ logrotate
 lsb-release
 lsp-plugins-lv2
 lsscsi
+lutris
 lvm2
 man-db
 man-pages
@@ -149,6 +148,7 @@ noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
 nss-mdns
+ntfs-3g
 ntsync-autoload
 nvidia-prime
 nvidia-settings
@@ -156,6 +156,7 @@ nvidia-utils
 opencl-nvidia
 openssh
 os-prober
+otf-comicshanns-nerd
 pacman-contrib
 paru
 perl
@@ -165,16 +166,18 @@ plocate
 plymouth
 pnpm
 poppler-glib
-postman-bin
 power-profiles-daemon
 pv
 python
 python-defusedxml
 python-packaging
+qdirstat
 realtime-privileges
 rebuild-detector
 reflector
+rpcsvc-proto
 s-nail
+satty
 sg3_utils
 shelly
 slack-desktop
@@ -194,6 +197,7 @@ ttf-meslo-nerd
 ttf-opensans
 ufw
 ufw-extras
+umu-launcher
 unrar
 unzip
 usb_modeswitch
@@ -203,8 +207,12 @@ visual-studio-code-bin
 vlc
 vlc-plugins-all
 vulkan-icd-loader
+vulkan-tools
 waybar
 which
+whitesur-icon-theme
+wine
+winetricks
 wlr-randr
 wpa_supplicant
 xdg-utils

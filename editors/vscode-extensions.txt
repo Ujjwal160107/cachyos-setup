@@ -9,6 +9,7 @@ github.vscode-github-actions
 hbenl.vscode-test-explorer
 icrawl.discord-vscode
 kickbacksai.kickbacks-ai
+mechatroner.rainbow-csv
 ms-azuretools.vscode-containers
 ms-python.debugpy
 ms-python.python

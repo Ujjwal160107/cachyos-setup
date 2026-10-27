@@ -9,5 +9,8 @@ RippleButton {
     implicitWidth: implicitHeight - topInset - bottomInset
     buttonRadius: Appearance.rounding.normal
 
-    background.implicitHeight: 50
+    // Track the dock row's height (dock.height + elevationMargin) rather than a fixed
+    // size, so buttons stay centred in the pill at any dock.height instead of
+    // overflowing it and pushing the icons and their indicator dots out the bottom.
+    background.implicitHeight: (Config.options?.dock.height ?? 70) + Appearance.sizes.elevationMargin - topInset - bottomInset
 }

@@ -22,6 +22,26 @@ Item {
     property bool buttonHovered: false
     property bool requestDockShow: previewPopup.show
 
+    // macOS-style dock magnification: how far (in px) an icon's influence reaches,
+    // and the peak scale directly under the cursor. Falloff is a raised-cosine curve
+    // (same shape real dock-magnification implementations use) so it's a continuous
+    // function of cursor position, not a two-state hover jump.
+    readonly property real magnifyRadius: 130
+    readonly property real magnifyMaxScale: 1.55
+
+    // Live distance (px) from the cursor to the center of `item`, or a large number
+    // when the cursor isn't over the dock. Read inside a property binding so callers
+    // stay reactive to dockHoverArea's tracked position. Uses a HoverHandler rather
+    // than a MouseArea so it doesn't steal hover from the per-button MouseAreas that
+    // already drive the window-preview popup (MouseAreas only deliver hover to the
+    // topmost overlapping item; HoverHandlers track independently of each other).
+    function distanceToCursor(item) {
+        if (!dockHoverArea.hovered)
+            return magnifyRadius + 1;
+        const pos = root.mapFromItem(item, item.width / 2, 0);
+        return Math.abs(pos.x - dockHoverArea.point.position.x);
+    }
+
     Layout.fillHeight: true
     Layout.topMargin: Appearance.sizes.hyprlandGapsOut
     implicitWidth: listView.implicitWidth
@@ -58,6 +78,11 @@ Item {
             topInset: Appearance.sizes.hyprlandGapsOut + root.buttonPadding
             bottomInset: Appearance.sizes.hyprlandGapsOut + root.buttonPadding
         }
+    }
+
+    HoverHandler {
+        id: dockHoverArea
+        target: root
     }
 
     PopupWindow {

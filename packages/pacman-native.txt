@@ -38,10 +38,8 @@ cachyos-zsh-config
 calf
 cantarell-fonts
 chwd
-claude-desktop
 cpupower
 cryptsetup
-cursor-bin
 device-mapper
 diffutils
 discord
@@ -62,7 +60,6 @@ exfatprogs
 f2fs-tools
 fastfetch
 ffmpegthumbnailer
-firefox
 flatpak
 fsarchiver
 git
@@ -91,6 +88,7 @@ lib32-vulkan-icd-loader
 libdvdcss
 libgsf
 libopenraw
+libreoffice-still
 libva-nvidia-driver
 lilv-tools
 linux-cachyos
@@ -104,6 +102,7 @@ logrotate
 lsb-release
 lsp-plugins-lv2
 lsscsi
+lutris
 lvm2
 man-db
 man-pages
@@ -128,6 +127,7 @@ noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
 nss-mdns
+ntfs-3g
 ntsync-autoload
 nvidia-prime
 nvidia-settings
@@ -135,6 +135,7 @@ nvidia-utils
 opencl-nvidia
 openssh
 os-prober
+otf-comicshanns-nerd
 pacman-contrib
 paru
 perl
@@ -152,7 +153,9 @@ python-packaging
 realtime-privileges
 rebuild-detector
 reflector
+rpcsvc-proto
 s-nail
+satty
 sg3_utils
 shelly
 smartmontools
@@ -170,6 +173,7 @@ ttf-meslo-nerd
 ttf-opensans
 ufw
 ufw-extras
+umu-launcher
 unrar
 unzip
 usb_modeswitch
@@ -178,12 +182,14 @@ vim
 vlc
 vlc-plugins-all
 vulkan-icd-loader
+vulkan-tools
 waybar
 which
+wine
+winetricks
 wlr-randr
 wpa_supplicant
 xdg-utils
 xfsprogs
 xl2tpd
-yay-bin
 zen-browser-bin

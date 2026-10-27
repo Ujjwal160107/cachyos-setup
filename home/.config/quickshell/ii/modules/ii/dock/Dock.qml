@@ -29,19 +29,26 @@ Scope { // Scope
 
             property bool reveal: root.pinned || (Config.options?.dock.hoverToReveal && dockMouseArea.containsMouse) || dockApps.requestDockShow || (!ToplevelManager.activeToplevel?.activated)
 
+            // Free space above the pill so magnified icons (which grow upward from
+            // transformOrigin: Item.Bottom in DockAppButton) render past it instead of
+            // being cut off at the layer-shell surface's top edge. App buttons fill
+            // dockRow, which ends up dock.height + hyprlandGapsOut * 2 tall, so that
+            // height times the extra scale is how far the icon under the cursor rises.
+            property real magnifyHeadroom: ((Config.options?.dock.height ?? 70) + Appearance.sizes.hyprlandGapsOut * 2) * (dockApps.magnifyMaxScale - 1)
+
             anchors {
                 bottom: true
                 left: true
                 right: true
             }
 
-            exclusiveZone: root.pinned ? implicitHeight - (Appearance.sizes.hyprlandGapsOut) - (Appearance.sizes.elevationMargin - Appearance.sizes.hyprlandGapsOut) : 0
+            exclusiveZone: root.pinned ? implicitHeight - magnifyHeadroom - (Appearance.sizes.hyprlandGapsOut) - (Appearance.sizes.elevationMargin - Appearance.sizes.hyprlandGapsOut) : 0
 
             implicitWidth: dockBackground.implicitWidth
             WlrLayershell.namespace: "quickshell:dock"
             color: "transparent"
 
-            implicitHeight: (Config.options?.dock.height ?? 70) + Appearance.sizes.elevationMargin + Appearance.sizes.hyprlandGapsOut
+            implicitHeight: (Config.options?.dock.height ?? 70) + Appearance.sizes.elevationMargin + Appearance.sizes.hyprlandGapsOut + magnifyHeadroom
 
             mask: Region {
                 item: dockMouseArea
@@ -69,14 +76,16 @@ Scope { // Scope
 
                     Item { // Wrapper for the dock background
                         id: dockBackground
+                        // Bottom-anchored only. Anchoring top *and* bottom would let the
+                        // anchors set the height and silently ignore the line below,
+                        // stretching the pill over the headroom instead of leaving it free.
                         anchors {
-                            top: parent.top
                             bottom: parent.bottom
                             horizontalCenter: parent.horizontalCenter
                         }
 
                         implicitWidth: dockRow.implicitWidth + 5 * 2
-                        height: parent.height - Appearance.sizes.elevationMargin - Appearance.sizes.hyprlandGapsOut
+                        height: parent.height - dockRoot.magnifyHeadroom
 
                         StyledRectangularShadow {
                             target: dockVisualBackground
