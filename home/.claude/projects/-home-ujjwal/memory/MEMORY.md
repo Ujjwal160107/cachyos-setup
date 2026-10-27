@@ -13,3 +13,4 @@
 - [oh-my-posh prompt](oh-my-posh-prompt.md) — marcduiker theme in fish/zsh/bash, p10k hooks stripped in zshrc, ComicShannsMono Nerd Font Mono
 - [CN literature survey project](cn-lit-survey-project.md) — ~/CN-Project (renamed from ~/Project): 98 verified papers, workbooks, Review 2 deck, manuscript draft 2026-10-26; PACM ruling pending
 - [Windows games on Linux](windows-games-on-linux.md) — Steam NTFS library + Lutris in place; fstab rw ntfs-3g; Fast Startup must stay off; double-click .exe via run-exe handler; campus IP hits GitHub rate limit
+- [Ryoku desktop](ryoku-desktop.md) — tried 2026-10-27, user reverted to ii 2026-10-28 (restore.sh, greetd); ii notes above are current again; Ryoku state tarball in ~

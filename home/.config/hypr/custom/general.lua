@@ -52,6 +52,15 @@ if is_file_exists(dynamic_cursors_so) and pcall(hl.plugin.load, dynamic_cursors_
                     -- Don't apply the tilt/rotate effects while magnified either.
                     effects = false,
                     ipc = false
+                },
+
+                -- Magnifying loads a high-res copy from the hyprcursor theme. ii's Bibata ships
+                -- XCursor only; without a hyprcursor theme the big cursor renders red, and
+                -- scaling the 24 px image instead pixelates it. ~/.local/share/icons/
+                -- Bibata-Modern-Classic adds hyprcursors converted from it (up to 96 px).
+                hyprcursor = {
+                    enabled = true,
+                    nearest = false
                 }
             }
         }

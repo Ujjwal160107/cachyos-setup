@@ -201,11 +201,6 @@
       }
     ]
   },
-  "statusLine": {
-    "type": "command",
-    "command": "node \"/home/ujjwal/.kickbacks/vibe-ads-statusline.mjs\"",
-    "padding": 0
-  },
   "enabledPlugins": {
     "evals-skills@hamelsmu-evals-skills": true,
     "context7@claude-plugins-official": true,
@@ -235,12 +230,6 @@
     }
   },
   "outputStyle": "Plain",
-  "spinnerVerbs": {
-    "mode": "replace",
-    "verbs": [
-      "VerveQ \u2014 Think you know football? Prove it - verveq.com"
-    ]
-  },
   "effortLevel": "xhigh",
   "modelSettings": {
     "claude-fable-5-1": {

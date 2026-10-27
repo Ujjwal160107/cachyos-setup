@@ -153,6 +153,7 @@ ntsync-autoload
 nvidia-prime
 nvidia-settings
 nvidia-utils
+obs-studio
 opencl-nvidia
 openssh
 os-prober

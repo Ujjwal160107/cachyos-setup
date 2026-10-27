@@ -16,5 +16,6 @@
 ,
 "material-code.primaryColor": "#6D6E7A",
 "gitlens.mode.active": "zen",
-"terminal.integrated.fontFamily": "'ComicShannsMono Nerd Font Mono', monospace"
+"terminal.integrated.fontFamily": "'ComicShannsMono Nerd Font Mono', monospace",
+"explorer.confirmPasteNative": false
 }

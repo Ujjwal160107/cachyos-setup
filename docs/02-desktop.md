@@ -102,6 +102,47 @@ regenerate the patches so the repo matches reality:
 cd ~/dev/cachyos-setup && ./sync.sh
 ```
 
+### Building ii's Quickshell on Qt 6.12
+
+ii pins Quickshell to commit `7511545`, which no longer compiles against Qt 6.12
+(GCC and Clang both stop on "Meta Types must be fully defined"). Don't swap in
+the repo's `quickshell` package instead: it runs ii, but the bar's Hug corners
+fail to draw at startup and the bar comes up straight. Build the pin with
+upstream's fix (`5d5d498`, backported as `quickshell-qt6.12-moc-includes.patch`)
+using Clang with precompiled headers off:
+
+```bash
+cd ~/.local/share/dots-hyprland/sdata/dist-arch/illogical-impulse-quickshell-git
+makepkg -o                                  # fetch and extract the pinned source
+patch -d src/quickshell -p1 < ~/dev/cachyos-setup/patches/ii-dots/quickshell-qt6.12-moc-includes.patch
+sed 's/cmake -GNinja -B build \\/cmake -GNinja -B build -DCMAKE_DISABLE_PRECOMPILE_HEADERS=ON \\/' \
+  PKGBUILD > PKGBUILD.clang
+CC=clang CXX=clang++ makepkg -p PKGBUILD.clang -Aefsi
+```
+
+### Crisp cursor when shaken
+
+The shake-to-find plugin (`hypr/custom/general.lua`) enlarges the cursor from a
+**hyprcursor** theme. ii's Bibata-Modern-Classic is XCursor only: with no
+hyprcursor theme the big cursor renders red, and scaling the 24 px image
+pixelates it. Generate a hyprcursor copy next to it (not tracked here, 6 MB):
+
+```bash
+cd "$(mktemp -d)"
+hyprcursor-util --extract /usr/share/icons/Bibata-Modern-Classic -o .
+sed -i 's/^resize_algorithm = none/resize_algorithm = bilinear/' extracted_*/hyprcursors/*/meta.hl
+hyprcursor-util --create extracted_Bibata-Modern-Classic -o .
+T=~/.local/share/icons/Bibata-Modern-Classic && mkdir -p "$T"
+cp -a theme_*/hyprcursors "$T"/
+printf 'name = Bibata-Modern-Classic\ncursors_directory = hyprcursors\n' > "$T"/manifest.hl
+ln -s /usr/share/icons/Bibata-Modern-Classic/cursors "$T"/cursors
+ln -s /usr/share/icons/Bibata-Modern-Classic/index.theme "$T"/index.theme
+hyprctl setcursor Bibata-Modern-Classic 24
+```
+
+The `cursors` and `index.theme` links matter: this directory shadows the system
+one, so without them XCursor apps would lose the theme.
+
 ## Config you actually edit
 
 ii keeps user-facing settings apart from its internals. These are the files worth
