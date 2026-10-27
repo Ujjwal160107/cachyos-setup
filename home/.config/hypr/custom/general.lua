@@ -56,11 +56,15 @@ if is_file_exists(dynamic_cursors_so) and pcall(hl.plugin.load, dynamic_cursors_
 
                 -- Magnifying loads a high-res copy from the hyprcursor theme. ii's Bibata ships
                 -- XCursor only; without a hyprcursor theme the big cursor renders red, and
-                -- scaling the 24 px image instead pixelates it. ~/.local/share/icons/
-                -- Bibata-Modern-Classic adds hyprcursors converted from it (up to 96 px).
+                -- scaling bitmaps pixelates or blurs it. ~/.local/share/icons/
+                -- Bibata-Modern-Classic adds hyprcursors built from Bibata's SVG sources.
+                -- Apps that draw their own cursor (Chrome, Electron, Xwayland) have no
+                -- high-res shape; "clientside" would stretch their small one (blurry), so
+                -- show the arrow while magnified instead.
                 hyprcursor = {
                     enabled = true,
-                    nearest = false
+                    nearest = false,
+                    fallback = "left_ptr"
                 }
             }
         }

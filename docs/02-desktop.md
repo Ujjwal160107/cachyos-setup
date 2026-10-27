@@ -122,26 +122,25 @@ CC=clang CXX=clang++ makepkg -p PKGBUILD.clang -Aefsi
 
 ### Crisp cursor when shaken
 
-The shake-to-find plugin (`hypr/custom/general.lua`) enlarges the cursor from a
-**hyprcursor** theme. ii's Bibata-Modern-Classic is XCursor only: with no
-hyprcursor theme the big cursor renders red, and scaling the 24 px image
-pixelates it. Generate a hyprcursor copy next to it (not tracked here, 6 MB):
+The shake-to-find plugin (`hypr/custom/general.lua`, built with `hyprpm`)
+enlarges the cursor from a **hyprcursor** theme. ii's Bibata-Modern-Classic is
+XCursor only. Without a hyprcursor theme, hyprcursor falls back to whatever theme
+it finds (that is how the big cursor once turned red) and the plugin stretches the
+24 px image, which blurs. Build a vector copy from Bibata's SVG sources:
 
 ```bash
-cd "$(mktemp -d)"
-hyprcursor-util --extract /usr/share/icons/Bibata-Modern-Classic -o .
-sed -i 's/^resize_algorithm = none/resize_algorithm = bilinear/' extracted_*/hyprcursors/*/meta.hl
-hyprcursor-util --create extracted_Bibata-Modern-Classic -o .
-T=~/.local/share/icons/Bibata-Modern-Classic && mkdir -p "$T"
-cp -a theme_*/hyprcursors "$T"/
-printf 'name = Bibata-Modern-Classic\ncursors_directory = hyprcursors\n' > "$T"/manifest.hl
-ln -s /usr/share/icons/Bibata-Modern-Classic/cursors "$T"/cursors
-ln -s /usr/share/icons/Bibata-Modern-Classic/index.theme "$T"/index.theme
-hyprctl setcursor Bibata-Modern-Classic 24
+bibata-hyprcursor    # tracked in .local/bin; writes ~/.local/share/icons/Bibata-Modern-Classic
 ```
 
-The `cursors` and `index.theme` links matter: this directory shadows the system
-one, so without them XCursor apps would lose the theme.
+Three more things have to hold, or the big cursor goes blurry again:
+
+- **Rebuild the plugin after every Hyprland update.** It reads Hyprland's
+  internals, and a stale build silently skips the high-res path. `hyprpm` is a
+  separate package on CachyOS: `sudo pacman -S hyprpm && hyprpm update`.
+- **`hyprcursor.fallback = "left_ptr"`.** Chrome, Electron and Xwayland draw their
+  own cursor, which has no high-res version; the default `clientside` stretches it.
+- **Shake size within the preload.** The plugin preloads at 24 x `base` x 1.5 =
+  144 px; `limit = 5` (120 px) stays under that.
 
 ## Config you actually edit
 

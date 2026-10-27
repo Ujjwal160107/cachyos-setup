@@ -26,6 +26,7 @@ shell:.config/oh-my-posh
 shell:.config/fastfetch
 shell:.config/git/ignore
 shell:.local/bin/unless-ac
+shell:.local/bin/bibata-hyprcursor
 
 terminal:.config/kitty
 terminal:.config/alacritty

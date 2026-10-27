@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+# Build a hyprcursor copy of Bibata-Modern-Classic from Bibata's SVG sources, so the
+# shake-to-find plugin (hypr/custom/general.lua) magnifies the cursor sharply.
+# ii's Bibata package is XCursor only: with no hyprcursor theme the big cursor
+# renders red (hyprcursor falls back to whatever theme it finds) or blurry.
+#
+# The theme lands in ~/.local/share/icons/Bibata-Modern-Classic, which shadows the
+# system copy, so `cursors` and `index.theme` link back to it for XCursor apps.
+set -euo pipefail
+
+version=v2.0.7
+theme=Bibata-Modern-Classic
+dest="$HOME/.local/share/icons/$theme"
+work="$(mktemp -d)"
+trap 'rm -rf "$work"' EXIT
+
+curl -fsSL "https://codeload.github.com/ful1e5/Bibata_Cursor/tar.gz/refs/tags/$version" | tar -xz -C "$work"
+svg_dir="$(echo "$work"/Bibata_Cursor-*/svg/modern)"
+
+# Extract only to reuse the shape names, aliases and hotspots of the installed theme.
+hyprcursor-util --extract "/usr/share/icons/$theme" -o "$work" >/dev/null
+
+python3 -I - "$svg_dir" "$work/extracted_$theme/hyprcursors" <<'EOF'
+import pathlib, re, sys
+
+src, tree = pathlib.Path(sys.argv[1]), pathlib.Path(sys.argv[2])
+# Bibata's SVGs carry placeholder colours; these are Modern-Classic's (render.json).
+COLORS = {"#00FF00": "#000000", "#0000FF": "#FFFFFF", "#FF0000": "#000000"}
+
+def recolor(svg, dest):
+    text = svg.read_text()
+    for placeholder, color in COLORS.items():
+        text = re.sub(placeholder, color, text, flags=re.I)
+    dest.write_text(text)
+
+for shape in (p for p in tree.iterdir() if p.is_dir()):
+    meta = (shape / "meta.hl").read_text().splitlines()
+    keep = [l for l in meta if not l.startswith(("define_size", "resize_algorithm"))]
+    delays = [l.rsplit(",", 1)[1].strip() for l in meta if l.startswith("define_size") and l.count(",") == 2]
+    single = src / f"{shape.name}.svg"
+    frames = sorted((src / shape.name).glob("*.svg")) if (src / shape.name).is_dir() else []
+    if not single.exists() and not frames:
+        continue  # no SVG source: keep the extracted bitmaps
+    for png in shape.glob("*.png"):
+        png.unlink()
+    lines = ["resize_algorithm = bilinear"] + keep
+    if single.exists():
+        recolor(single, shape / single.name)
+        lines.append(f"define_size = 0, {single.name}")
+    else:
+        for frame in frames:
+            recolor(frame, shape / frame.name)
+            lines.append(f"define_size = 0, {frame.name}, {delays[0] if delays else 30}")
+    (shape / "meta.hl").write_text("\n".join(lines) + "\n")
+EOF
+
+hyprcursor-util --create "$work/extracted_$theme" -o "$work" >/dev/null
+
+mkdir -p "$dest"
+rm -rf "$dest/hyprcursors"
+cp -a "$work"/theme_*/hyprcursors "$dest/"
+printf 'name = %s\ndescription = Bibata SVGs packed for hyprcursor by bibata-hyprcursor\nversion = 0.1\ncursors_directory = hyprcursors\n' "$theme" > "$dest/manifest.hl"
+ln -sfn "/usr/share/icons/$theme/cursors" "$dest/cursors"
+ln -sfn "/usr/share/icons/$theme/index.theme" "$dest/index.theme"
+
+hyprctl setcursor "$theme" 24 >/dev/null 2>&1 || true
+echo "bibata-hyprcursor: built $dest"
