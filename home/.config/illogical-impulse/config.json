@@ -29,6 +29,23 @@
             "reading": "Readex Pro",
             "title": "Google Sans Flex"
         },
+        "liquidGlass": {
+            "accentColor": "",
+            "capsuleBar": false,
+            "contentTransparency": 0.78,
+            "darkEdge": true,
+            "edgeHighlight": 1.951223527575022,
+            "enable": true,
+            "glowSpread": true,
+            "highlights": "top",
+            "mode": "clear",
+            "modularSidebar": true,
+            "nearReflection": true,
+            "pressGlow": "subtle",
+            "refraction": 1.2532528580024067,
+            "tint": 0.1,
+            "tintAmount": 0.6
+        },
         "palette": {
             "accentColor": "",
             "type": "scheme-monochrome"
@@ -73,8 +90,8 @@
         "hideWhenFullscreen": true,
         "parallax": {
             "autoVertical": false,
-            "enableSidebar": false,
-            "enableWorkspace": false,
+            "enableSidebar": true,
+            "enableWorkspace": true,
             "vertical": false,
             "widgetsFactor": 1.2,
             "workspaceZoom": 1.07
@@ -82,20 +99,28 @@
         "thumbnailPath": "",
         "wallpaperPath": "/home/ujjwal/.local/state/wallpaper-engine/lockscreen.png",
         "widgets": {
+            "calendar": {
+                "enable": true,
+                "placementStrategy": "free",
+                "sizeMode": "2x3",
+                "x": 1046.9296874999998,
+                "y": 583.8984375,
+                "z": 0
+            },
             "clock": {
                 "cookie": {
                     "aiStyling": true,
-                    "constantlyRotate": false,
+                    "constantlyRotate": true,
                     "dateInClock": true,
                     "dateStyle": "bubble",
                     "dialNumberStyle": "full",
                     "hourHandStyle": "fill",
-                    "hourMarks": false,
+                    "hourMarks": true,
                     "minuteHandStyle": "medium",
                     "secondHandStyle": "dot",
                     "sides": 14,
                     "timeIndicators": true,
-                    "useSineCookie": false
+                    "useSineCookie": true
                 },
                 "digital": {
                     "adaptiveAlignment": true,
@@ -113,22 +138,63 @@
                 "enable": false,
                 "placementStrategy": "leastBusy",
                 "quote": {
-                    "enable": false,
-                    "text": ""
+                    "enable": true,
+                    "text": "Maybe we invented metaphor as a response to pain"
                 },
                 "showOnlyWhenLocked": false,
                 "style": "cookie",
                 "styleLocked": "cookie",
-                "x": 285,
-                "y": 335
+                "x": 1306.3359375,
+                "y": 412.5
+            },
+            "media": {
+                "enable": true,
+                "placementStrategy": "free",
+                "showLyrics": true,
+                "sizeMode": "1x3",
+                "x": 514.8671875000001,
+                "y": 463.38671875,
+                "z": 0
+            },
+            "resources": {
+                "enable": true,
+                "placementStrategy": "free",
+                "vertical": false,
+                "x": 512.2968750000001,
+                "y": 295.17578125,
+                "z": 0
+            },
+            "shadow": true,
+            "visualizer": {
+                "enable": false,
+                "placementStrategy": "free",
+                "x": 1596.9999999999998,
+                "y": 499.640625
             },
             "weather": {
                 "enable": false,
                 "placementStrategy": "free",
-                "x": 847.078125,
-                "y": 345.55859375
+                "x": 1084.4609375,
+                "y": 53.8984375
+            },
+            "worldClock": {
+                "clockCount": 4,
+                "enable": true,
+                "placementStrategy": "free",
+                "sizeMode": "2x2",
+                "timezones": [
+                    "Asia/Kolkata",
+                    "America/New_York",
+                    "Europe/Helsinki",
+                    "America/New_York"
+                ],
+                "vertical": true,
+                "x": 1032.7929687499998,
+                "y": 302.5390625,
+                "z": 0
             }
-        }
+        },
+        "widgetsLocked": false
     },
     "bar": {
         "autoHide": {
@@ -249,7 +315,8 @@
             "fasterTouchpadScroll": false,
             "mouseScrollDeltaThreshold": 120,
             "mouseScrollFactor": 120,
-            "touchpadScrollFactor": 450
+            "touchpadScrollFactor": 450,
+            "touchpadSensitivity": 1
         }
     },
     "language": {
@@ -295,7 +362,8 @@
         "useHyprlock": false
     },
     "media": {
-        "filterDuplicatePlayers": true
+        "filterDuplicatePlayers": true,
+        "showLyrics": true
     },
     "musicRecognition": {
         "interval": 4,

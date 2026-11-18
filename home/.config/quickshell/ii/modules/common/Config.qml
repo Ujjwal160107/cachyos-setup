@@ -137,6 +137,23 @@ Singleton {
                     property string type: "auto" // Allowed: auto, scheme-content, scheme-expressive, scheme-fidelity, scheme-fruit-salad, scheme-monochrome, scheme-neutral, scheme-rainbow, scheme-tonal-spot
                     property string accentColor: ""
                 }
+                property JsonObject liquidGlass: JsonObject {
+                    property bool enable: false
+                    property real tint: 0.10
+                    property real contentTransparency: 0.78
+                    property string accentColor: ""
+                    property string mode: "clear"
+                    property real tintAmount: 0.6
+                    property real edgeHighlight: 1.0
+                    property real refraction: 1.0
+                    property string pressGlow: "subtle"
+                    property bool glowSpread: true
+                    property string highlights: "top"
+                    property bool darkEdge: true
+                    property bool nearReflection: true
+                    property bool capsuleBar: false
+                    property bool modularSidebar: true
+                }
             }
 
             property JsonObject audio: JsonObject {
@@ -162,7 +179,9 @@ Singleton {
             }
 
             property JsonObject background: JsonObject {
+                property bool widgetsLocked: false
                 property JsonObject widgets: JsonObject {
+                    property bool shadow: true
                     property JsonObject clock: JsonObject {
                         property bool enable: true
                         property bool showOnlyWhenLocked: false
@@ -203,11 +222,53 @@ Singleton {
                             property string text: ""
                         }
                     }
+                    property JsonObject visualizer: JsonObject {
+                        property bool enable: false
+                        property string placementStrategy: "free" // "free", "leastBusy", "mostBusy"
+                        property real x: 100
+                        property real y: 900
+                    }
                     property JsonObject weather: JsonObject {
                         property bool enable: false
                         property string placementStrategy: "free" // "free", "leastBusy", "mostBusy"
                         property real x: 400
                         property real y: 100
+                    }
+                    property JsonObject media: JsonObject {
+                        property bool enable: false
+                        property string placementStrategy: "free" // "free", "leastBusy", "mostBusy"
+                        property real x: 400
+                        property real y: 100
+                        property real z: 0
+                        property string sizeMode: "1x3"
+                        property bool showLyrics: true
+                    }
+                    property JsonObject calendar: JsonObject {
+                        property bool enable: false
+                        property string placementStrategy: "free" // "free", "leastBusy", "mostBusy"
+                        property real x: 400
+                        property real y: 100
+                        property real z: 0
+                        property string sizeMode: "2x2"
+                    }
+                    property JsonObject worldClock: JsonObject {
+                        property bool enable: false
+                        property list<string> timezones: ["Australia/Sydney", "Asia/Tokyo", "Europe/London", "America/New_York"]
+                        property string placementStrategy: "free"
+                        property real x: 400
+                        property real y: 100
+                        property real z: 0
+                        property string sizeMode: "2x2"
+                        property bool vertical: false
+                        property int clockCount: 4
+                    }
+                    property JsonObject resources: JsonObject {
+                        property bool enable: false
+                        property string placementStrategy: "free"
+                        property real x: 400
+                        property real y: 100
+                        property real z: 0
+                        property bool vertical: false
                     }
                 }
                 property string wallpaperPath: ""
@@ -340,6 +401,7 @@ Singleton {
                     property int mouseScrollDeltaThreshold: 120 // delta >= this then it gets detected as mouse scroll rather than touchpad
                     property int mouseScrollFactor: 120
                     property int touchpadScrollFactor: 450
+                    property real touchpadSensitivity: 1
                 }
                 property JsonObject deadPixelWorkaround: JsonObject { // Hyprland leaves out 1 pixel on the right for interactions
                     property bool enable: false
@@ -391,6 +453,7 @@ Singleton {
             property JsonObject media: JsonObject {
                 // Attempt to remove dupes (the aggregator playerctl one and browsers' native ones when there's plasma browser integration)
                 property bool filterDuplicatePlayers: true
+                property bool showLyrics: true // Show timed lyrics in the media controls and media widget
             }
 
             property JsonObject networking: JsonObject {

@@ -226,6 +226,8 @@ ContentPage {
         }
     }
 
+    LiquidGlassConfig {}
+
     ContentSection {
         icon: "screenshot_monitor"
         title: Translation.tr("Bar & screen")

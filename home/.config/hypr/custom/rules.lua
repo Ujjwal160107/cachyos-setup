@@ -39,3 +39,13 @@ hl.window_rule({
 -- matching rule wins. Blurring xwayland's zero-class context menus smears
 -- them into whatever is underneath.
 hl.window_rule({ match = { class = "^()$", title = "^()$" }, no_blur = true })
+
+-- Liquid glass (hyprglass) on Chrome and Discord. Both draw opaque content, so the glass
+-- behind them only shows through window opacity. no_blur hands them to hyprglass: with
+-- Hyprland's own (cached) blur still on, the glass disappears on static windows.
+-- Must stay after the class=".*" no_blur=false wildcard above: last matching rule wins.
+hl.window_rule({
+    match = { class = "^(google-chrome|discord)$" },
+    opacity = "0.85 override 0.78 override",
+    no_blur = true,
+})

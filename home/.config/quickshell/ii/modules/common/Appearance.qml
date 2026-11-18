@@ -31,8 +31,24 @@ Singleton {
         return Math.max(0, Math.min(0.22, y)) - 0.12 * (m3colors.darkmode ? 0 : 1)
     }
     property real autoContentTransparency: 0.9
-    property real backgroundTransparency: Config?.options.appearance.transparency.enable ? Config?.options.appearance.transparency.automatic ? autoBackgroundTransparency : Config?.options.appearance.transparency.backgroundTransparency : 0
-    property real contentTransparency: Config?.options.appearance.transparency.automatic ? autoContentTransparency : Config?.options.appearance.transparency.contentTransparency
+    property bool liquidGlass: Config?.options.appearance.liquidGlass.enable ?? false
+    property bool hasAccent: (Config?.options.appearance.liquidGlass.accentColor ?? "") !== ""
+    property color accent: !hasAccent ? colors.colPrimary
+        : (!m3colors.darkmode && Qt.color(Config.options.appearance.liquidGlass.accentColor).hslLightness > 0.85) ? "#1A1A1A"
+        : Config.options.appearance.liquidGlass.accentColor
+    property color colOnAccent: {
+        if (!hasAccent)
+            return colors.colOnPrimary;
+        const lin = c => c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+        const l = 0.2126 * lin(accent.r) + 0.7152 * lin(accent.g) + 0.0722 * lin(accent.b);
+        return 1.05 / (l + 0.05) >= 3 ? "white" : "#1A1A1A";
+    }
+    property bool liquidCapsuleBar: liquidGlass && Config.options.appearance.liquidGlass.capsuleBar
+    property bool liquidModularSidebar: liquidGlass && Config.options.appearance.liquidGlass.modularSidebar
+    property real backgroundTransparency: liquidGlass ? 1 - Config.options.appearance.liquidGlass.tint
+        : Config?.options.appearance.transparency.enable ? Config?.options.appearance.transparency.automatic ? autoBackgroundTransparency : Config?.options.appearance.transparency.backgroundTransparency : 0
+    property real contentTransparency: liquidGlass ? Config.options.appearance.liquidGlass.contentTransparency
+        : Config?.options.appearance.transparency.automatic ? autoContentTransparency : Config?.options.appearance.transparency.contentTransparency
 
     m3colors: QtObject {
         property bool darkmode: true
@@ -116,7 +132,7 @@ Singleton {
         property color colOnLayer0: m3colors.m3onBackground
         property color colLayer0Hover: ColorUtils.transparentize(ColorUtils.mix(colLayer0, colOnLayer0, 0.9, root.contentTransparency))
         property color colLayer0Active: ColorUtils.transparentize(ColorUtils.mix(colLayer0, colOnLayer0, 0.8, root.contentTransparency))
-        property color colLayer0Border: ColorUtils.mix(root.m3colors.m3outlineVariant, colLayer0, 0.4)
+        property color colLayer0Border: root.liquidGlass ? "transparent" : ColorUtils.mix(root.m3colors.m3outlineVariant, colLayer0, 0.4)
         // Layer 1
         property color colLayer1Base: m3colors.m3surfaceContainerLow
         property color colLayer1: ColorUtils.solveOverlayColor(colLayer0Base, colLayer1Base, 1 - root.contentTransparency);
@@ -185,7 +201,7 @@ Singleton {
         property color colTooltip: m3colors.m3inverseSurface
         property color colOnTooltip: m3colors.m3inverseOnSurface
         property color colScrim: ColorUtils.transparentize(m3colors.m3scrim, 0.5)
-        property color colShadow: ColorUtils.transparentize(m3colors.m3shadow, 0.7)
+        property color colShadow: root.liquidGlass ? "transparent" : ColorUtils.transparentize(m3colors.m3shadow, 0.7)
         property color colOutline: m3colors.m3outline
         property color colOutlineVariant: m3colors.m3outlineVariant
         property color colError: m3colors.m3error

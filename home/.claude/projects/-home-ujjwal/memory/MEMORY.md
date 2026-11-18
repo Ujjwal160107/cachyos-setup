@@ -1,6 +1,6 @@
 - [Windows to CachyOS migration (Sep 2026)](windows-migration-2026-09.md) — repos in ~/dev, HTTPS remotes, SSH keys are Antra1705's, /mnt/win rw (ntfs-3g) since 2026-10-24
 - [ii dots install](ii-dots-install.md) — end-4 illogical-impulse installed 2026-09-06; source in ~/.local/share, three patches to reapply on update, hyprctl dispatch takes Lua
-- [Wallpaper Engine startup](wallpaper-engine-setup.md) — launcher script, GUI autostart off, two ii QML patches lost on ii update
+- [Wallpaper Engine startup](wallpaper-engine-setup.md) — launcher script, GUI autostart off; layering changed 2026-11-19, see upayan-widgets-glass
 - [CachyOS setup repo](cachyos-setup-repo.md) — private rebuild repo at ~/dev/cachyos-setup; manifest.txt drives install.sh/sync.sh; install.sh not yet run here
 - [Hyprcursor startup race](hyprcursor-startup-race.md) — login SEGV from setcursor racing dynamic-cursors; fixed 2026-10-31, ii update restores the line
 - [ii dock magnify headroom](dock-magnify-headroom.md) — hover-magnify clipping fix; QML anchor gotcha; dock.height 48, iconSize 32
@@ -22,3 +22,4 @@
 - [Study guide PDFs](study-guide-pdfs.md) — first-time-learning guides, syllabus-only, answers inline, ~60 p/module; keep sources out of /tmp (reboot wiped them 2026-11-13)
 - [Subagents on Sonnet](subagent-model-sonnet.md) — general-purpose Agent calls use model "sonnet" (user request 2026-11-12)
 - [Windows drive cleanup](windows-drive-cleanup.md) — page file cap broke Spider-Man 2 (low virtual memory), reverted to system-managed; never cap it; Office/WSL/SDKs left for Windows uninstall
+- [Upayan widgets + glass port](upayan-widgets-glass.md) — 2026-11-19 desktop widgets/lyrics/liquid glass; WE now on background layer, ii hides static image; one quickshell patch file

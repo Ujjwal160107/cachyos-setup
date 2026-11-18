@@ -14,6 +14,7 @@ Singleton {
     property bool sidebarLeftOpen: false
     property bool sidebarRightOpen: false
     property bool mediaControlsOpen: false
+    property bool desktopWidgetKeyboardFocus: false
     property bool osdBrightnessOpen: false
     property bool osdVolumeOpen: false
     property bool oskOpen: false

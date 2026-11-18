@@ -14,9 +14,6 @@ import Quickshell.Io
 import Quickshell.Wayland
 import Quickshell.Hyprland
 
-import qs.modules.ii.background.widgets
-import qs.modules.ii.background.widgets.clock
-import qs.modules.ii.background.widgets.weather
 
 Variants {
     id: root
@@ -76,9 +73,11 @@ Variants {
         exclusionMode: ExclusionMode.Ignore
         // Background rather than Bottom while unlocked, so linux-wallpaperengine (bottom layer) stays on
         // top of this static wallpaper; it still lifts to Overlay for the lock screen.
-        WlrLayershell.layer: (GlobalStates.screenLocked && !scaleAnim.running) ? WlrLayer.Overlay : WlrLayer.Background
+        WlrLayershell.layer: (GlobalStates.screenLocked && !scaleAnim.running) ? WlrLayer.Overlay : WlrLayer.Bottom
         // WlrLayershell.layer: WlrLayer.Bottom
         WlrLayershell.namespace: "quickshell:background"
+        WlrLayershell.keyboardFocus: GlobalStates.desktopWidgetKeyboardFocus
+            ? WlrKeyboardFocus.OnDemand : WlrKeyboardFocus.None
         anchors {
             top: true
             bottom: true
@@ -92,6 +91,39 @@ Variants {
         }
         Behavior on color {
             animation: Appearance.animation.elementMoveFast.colorAnimation.createObject(this)
+        }
+
+        // linux-wallpaperengine renders on the background layer, under this window. While it runs,
+        // hide the static image so it shows through and the widgets draw on top of it; the image
+        // comes back for the lock screen and whenever the renderer is gone.
+        property bool wallpaperEngineActive: false
+        Process {
+            id: wallpaperEngineCheck
+            running: true
+            command: ["hyprctl", "layers", "-j"]
+            stdout: StdioCollector {
+                onStreamFinished: {
+                    try {
+                        const levels = Object.values(JSON.parse(text)[bgRoot.screen.name]?.levels ?? {});
+                        bgRoot.wallpaperEngineActive = levels.some(l => l.some(s => s.namespace === "linux-wallpaperengine"));
+                    } catch (e) {
+                        bgRoot.wallpaperEngineActive = false;
+                    }
+                }
+            }
+        }
+        Timer {
+            // closelayer arrives before the layer leaves hyprctl's list
+            id: wallpaperEngineRecheck
+            interval: 500
+            onTriggered: wallpaperEngineCheck.running = true
+        }
+        Connections {
+            target: Hyprland
+            function onRawEvent(event) {
+                if (["openlayer", "closelayer"].includes(event.name) && event.data === "linux-wallpaperengine")
+                    wallpaperEngineRecheck.restart();
+            }
         }
 
         onWallpaperPathChanged: {
@@ -133,7 +165,7 @@ Variants {
             StyledImage {
                 id: wallpaper
                 visible: opacity > 0 && !blurLoader.active
-                opacity: (status === Image.Ready && !bgRoot.wallpaperIsVideo) ? 1 : 0
+                opacity: (status === Image.Ready && !bgRoot.wallpaperIsVideo && (GlobalStates.screenLocked || !bgRoot.wallpaperEngineActive)) ? 1 : 0
                 cache: false
                 smooth: false
 
@@ -256,27 +288,10 @@ Variants {
                     }
                 }
 
-                FadeLoader {
-                    shown: Config.options.background.widgets.weather.enable
-                    sourceComponent: WeatherWidget {
-                        screenWidth: bgRoot.screen.width
-                        screenHeight: bgRoot.screen.height
-                        scaledScreenWidth: bgRoot.screen.width
-                        scaledScreenHeight: bgRoot.screen.height
-                        wallpaperScale: 1
-                    }
-                }
-
-                FadeLoader {
-                    shown: Config.options.background.widgets.clock.enable
-                    sourceComponent: ClockWidget {
-                        screenWidth: bgRoot.screen.width
-                        screenHeight: bgRoot.screen.height
-                        scaledScreenWidth: bgRoot.screen.width
-                        scaledScreenHeight: bgRoot.screen.height
-                        wallpaperScale: 1
-                        wallpaperSafetyTriggered: bgRoot.wallpaperSafetyTriggered
-                    }
+                WidgetsLoader {
+                    screen: bgRoot.screen
+                    wallpaperItem: wallpaper
+                    wallpaperSafetyTriggered: bgRoot.wallpaperSafetyTriggered
                 }
             }
         }

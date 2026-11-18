@@ -70,3 +70,5 @@ if is_file_exists(dynamic_cursors_so) and pcall(hl.plugin.load, dynamic_cursors_
         }
     })
 end
+
+require("custom.liquidglass")

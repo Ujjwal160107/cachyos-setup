@@ -35,9 +35,17 @@ line contains that string, or pkill kills the caller too. This Hyprland build ta
 `hypr/hyprland/{general,keybinds,rules}.lua`, `overview/Overview.qml` and `services/SystemInfo.qml`,
 none of them locally patched, so those five were copied into `~/.config` (old copies in
 `~/ii-update-backup-2026-11-18`). That keeps the QML patches and the removed `setcursor` line from
-[[hyprcursor-startup-race]] intact. Upstream also bumped the Quickshell pin to 4f508be (0.3.2,
-includes the Qt 6.12 fix); NOT rebuilt, because 0.3.2 broke the bar's Hug corners here (see
-[[ryoku-desktop]]). The installed custom build (7511545 + cherry-picked 5d5d498) still runs.
+[[hyprcursor-startup-race]] intact. Upstream also bumped the Quickshell pin to 4f508be (0.3.2, includes the Qt 6.12 fix). Built
+the same day from ii's PKGBUILD with Clang and `-DCMAKE_DISABLE_PRECOMPILE_HEADERS=ON` in
+`~/.cache/qs-0.3.2-build` and installed. It draws the bar's Hug corners on an empty workspace
+(checked with grim crops), and the log has the same 8 startup warnings as the old build. The earlier
+corner bug was the Arch-packaged 0.3.2, not this build. Rollback package:
+`~/ii-update-backup-2026-11-18/quickshell-working-7511545+5d5d498.pkg.tar.zst` (`sudo pacman -U` it).
 Before the next update, diff `git diff HEAD @{u} --stat` first; only use `./setup install` when
 upstream touches many files, then reapply every patch above.
+
+User prefers the OLD scroll direction: upstream d24a66d ("fix wrong mouse scroll direction in binds")
+swapped Super+scroll and Super+Shift/Alt+scroll; reverted in `hypr/hyprland/keybinds.lua` on 2026-11-19.
+That file is ii-owned, so reapply `~/dev/cachyos-setup/patches/ii-dots/keybinds-scroll-direction.patch`
+after every ii update.
 

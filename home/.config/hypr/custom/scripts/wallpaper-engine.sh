@@ -15,7 +15,7 @@ STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/wallpaper-engine"
 LOCK_IMAGE="$STATE_DIR/lockscreen.png"
 PICK_FILE="$STATE_DIR/current"
 SWITCHWALL="$HOME/.config/quickshell/ii/scripts/colors/switchwall.sh"
-LAYER="${WPE_LAYER:-bottom}"
+LAYER="${WPE_LAYER:-background}"
 mkdir -p "$STATE_DIR"
 
 # The kernel truncates comm to 15 chars ("linux-wallpaper"), so match the command line.

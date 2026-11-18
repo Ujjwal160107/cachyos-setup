@@ -53,8 +53,8 @@ Item {
         anchors.fill: parent
         implicitHeight: parent.height - Appearance.sizes.hyprlandGapsOut * 2
         implicitWidth: sidebarWidth - Appearance.sizes.hyprlandGapsOut * 2
-        color: Appearance.colors.colLayer0
-        border.width: 1
+        color: Appearance.liquidModularSidebar ? "transparent" : Appearance.colors.colLayer0
+        border.width: Appearance.liquidModularSidebar ? 0 : 1
         border.color: Appearance.colors.colLayer0Border
         radius: Appearance.rounding.screenRounding - Appearance.sizes.hyprlandGapsOut + 1
 

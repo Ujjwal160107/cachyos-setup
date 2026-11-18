@@ -9,6 +9,8 @@ Rectangle {
 
     property bool loading: true
     property double pullProgress: 0
+    property alias colBg: root.color
+    property alias colShape: shape.color
 
     // Size, color
     property double implicitSize: 48

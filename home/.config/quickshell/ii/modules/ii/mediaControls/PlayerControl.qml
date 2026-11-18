@@ -306,6 +306,33 @@ Item { // Player instance
                     }
                 }
             }
+
+            Item { // Vertical divider before lyrics
+                Layout.fillHeight: true
+                Layout.preferredWidth: 1
+                Layout.topMargin: 8
+                Layout.bottomMargin: 8
+                visible: Config.options.media.showLyrics && root.player === MprisController.activePlayer && LyricsService.synced
+                Rectangle {
+                    anchors.fill: parent
+                    color: ColorUtils.transparentize(blendedColors.colOnLayer0, 0.85)
+                }
+            }
+
+            Lyrics { // Timed lyrics for the active track
+                id: playerLyrics
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                Layout.preferredWidth: 260
+                visible: Config.options.media.showLyrics && root.player === MprisController.activePlayer && LyricsService.synced
+                textColor: blendedColors.colOnLayer0
+                activeColor: blendedColors.colOnLayer0
+                indicatorColor: blendedColors.colPrimaryContainer
+                indicatorShapeColor: blendedColors.colOnPrimaryContainer
+                fontScale: 0.9
+                lineSpacing: 4
+                animateTransitions: true
+            }
         }
     }
 }

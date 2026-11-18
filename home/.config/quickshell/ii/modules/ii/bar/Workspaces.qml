@@ -196,7 +196,7 @@ ButtonMouseArea {
         Colorizer {
             z: 5
             anchors.fill: numbersGrid
-            colorizationColor: Appearance.colors.colOnPrimary
+            colorizationColor: Appearance.colOnAccent
             sourceColor: Appearance.colors.colOnSecondaryContainer
 
             source: activeIndicator
@@ -430,7 +430,7 @@ ButtonMouseArea {
 
             contentLayer: StyledRectangle.ContentLayer.Group
             radius: indicatorThickness / 2
-            color: Appearance.colors.colPrimary
+            color: Appearance.hasAccent ? Appearance.accent : Appearance.colors.colPrimary
 
             x: root.vertical ? null : indicatorPosition
             y: root.vertical ? indicatorPosition : null
