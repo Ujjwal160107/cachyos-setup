@@ -2,6 +2,7 @@
 - [ii dots install](ii-dots-install.md) — end-4 illogical-impulse installed 2026-09-06; source in ~/.local/share, three patches to reapply on update, hyprctl dispatch takes Lua
 - [Wallpaper Engine startup](wallpaper-engine-setup.md) — launcher script, GUI autostart off, two ii QML patches lost on ii update
 - [CachyOS setup repo](cachyos-setup-repo.md) — private rebuild repo at ~/dev/cachyos-setup; manifest.txt drives install.sh/sync.sh; install.sh not yet run here
+- [Hyprcursor startup race](hyprcursor-startup-race.md) — login SEGV from setcursor racing dynamic-cursors; fixed 2026-10-31, ii update restores the line
 - [ii dock magnify headroom](dock-magnify-headroom.md) — hover-magnify clipping fix; QML anchor gotcha; dock.height 48, iconSize 32
 - [No Mac-style desktop](no-mac-style-desktop.md) — user rejected a macOS cursor/dock change on 2026-09-07; don't reapply without confirming
 - [Wifi failover to hotspot](wifi-failover.md) — T-VIT dies ~13:29 while staying associated; systemd user timer switches to vivo Y39 5G, switch back is manual
@@ -14,3 +15,10 @@
 - [CN literature survey project](cn-lit-survey-project.md) — ~/CN-Project (renamed from ~/Project): 98 verified papers, workbooks, Review 2 deck, manuscript draft 2026-10-26; PACM ruling pending
 - [Windows games on Linux](windows-games-on-linux.md) — Steam NTFS library + Lutris in place; fstab rw ntfs-3g; Fast Startup must stay off; double-click .exe via run-exe handler; campus IP hits GitHub rate limit
 - [Ryoku desktop](ryoku-desktop.md) — tried 2026-10-27, user reverted to ii 2026-10-28 (restore.sh, greetd); ii notes above are current again; Ryoku state tarball in ~
+- [ii Game mode kills blur](ii-game-mode-kills-blur.md) — a mis-tapped quick toggle writes shellOverrides/main.lua, sourced after custom config; also ~/.config/hypr/config/ is dead
+- [Nightreign mod merge](nightreign-mod-merge.md) — current build: ELDEN VINS + MMV bosses/castles (build_vins.py, 2026-11-04, untested); MMV source sits in the Linux trash on /mnt/win
+- [Fortuna VPS over Tailscale](fortuna-vps-tailscale.md) — `ssh root@fortuna` works since 2026-11-05; laptop is asgrd-1 on the tailnet; MagicDNS warning is harmless
+- [Chrome logout on boot](chrome-logout-keyring.md) — greetd PAM lacked pam_gnome_keyring + duplicate Chrome Safe Storage keys; fixed and verified 2026-11-08, backups in ~/keyring-backup-2026-11-07
+- [Study guide PDFs](study-guide-pdfs.md) — first-time-learning guides, syllabus-only, answers inline, ~60 p/module; keep sources out of /tmp (reboot wiped them 2026-11-13)
+- [Subagents on Sonnet](subagent-model-sonnet.md) — general-purpose Agent calls use model "sonnet" (user request 2026-11-12)
+- [Windows drive cleanup](windows-drive-cleanup.md) — page file cap broke Spider-Man 2 (low virtual memory), reverted to system-managed; never cap it; Office/WSL/SDKs left for Windows uninstall

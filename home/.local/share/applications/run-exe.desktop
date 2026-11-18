@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Run with Proton
+Comment=Run a Windows program with GE-Proton
+Exec=/home/ujjwal/.local/bin/run-exe %f
+Icon=wine
+Terminal=false
+NoDisplay=true
+MimeType=application/vnd.microsoft.portable-executable;application/x-ms-dos-executable;application/x-msdownload;

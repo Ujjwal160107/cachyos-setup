@@ -30,3 +30,14 @@ Quickshell does not hot-reload QML — restart it with `Ctrl+Super+R` (or
 `qs -c ii`) after editing, and never `pkill -f "qs -c ii"` from a shell whose own command
 line contains that string, or pkill kills the caller too. This Hyprland build takes Lua in `hyprctl dispatch`: use
 `hyprctl dispatch 'hl.dsp.exec_cmd("cmd")'`, not `hyprctl dispatch exec cmd`. Related: [[cachyos-hyprland-env]].
+
+**Updated 2026-11-18** from 97c5bc6 to 21733c3 without `./setup install`: upstream only changed
+`hypr/hyprland/{general,keybinds,rules}.lua`, `overview/Overview.qml` and `services/SystemInfo.qml`,
+none of them locally patched, so those five were copied into `~/.config` (old copies in
+`~/ii-update-backup-2026-11-18`). That keeps the QML patches and the removed `setcursor` line from
+[[hyprcursor-startup-race]] intact. Upstream also bumped the Quickshell pin to 4f508be (0.3.2,
+includes the Qt 6.12 fix); NOT rebuilt, because 0.3.2 broke the bar's Hug corners here (see
+[[ryoku-desktop]]). The installed custom build (7511545 + cherry-picked 5d5d498) still runs.
+Before the next update, diff `git diff HEAD @{u} --stat` first; only use `./setup install` when
+upstream touches many files, then reapply every patch above.
+

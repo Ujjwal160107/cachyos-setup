@@ -120,7 +120,7 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "sonnet",
+  "model": "opus",
   "hooks": {
     "Notification": [
       {
@@ -249,7 +249,12 @@
     }
   },
   "autoUpdatesChannel": "latest",
+  "voice": {
+    "enabled": true,
+    "mode": "tap"
+  },
   "skipDangerousModePermissionPrompt": true,
+  "skipWorkflowUsageWarning": true,
   "theme": "dark",
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
@@ -292,5 +297,6 @@
       "**Trusted repo**: `Cruitical/cruitical` at `/home/ujjwal/dev/cruitical`, remote `https://github.com/Cruitical/cruitical.git` (private). Confidential material is fine in this private repo; secrets and candidate/customer-authored text are never cleared into it by its visibility (see Definitions).",
       "**Org-specific CLIs**: `uv` (backend lint/test/alembic runner, 41x in project transcripts, 19x in shell history), `elevenlabs` (agent export/push, 102x in shell history), `gh` (16x), `alembic` (3x); routine local tooling: `pnpm`, `npm`, `npx`, `docker` / `docker-compose`, `python`, `node`, `winget`, `powershell`, `taskkill`, `where`"
     ]
-  }
+  },
+  "voiceEnabled": true
 }

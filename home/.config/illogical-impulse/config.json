@@ -233,8 +233,8 @@
         "pinnedApps": [
             "code",
             "zen",
-            "kitty",
-            "google-chrome"
+            "google-chrome",
+            "kitty"
         ],
         "pinnedOnStartup": false
     },
@@ -273,7 +273,7 @@
         },
         "night": {
             "automatic": false,
-            "colorTemperature": 5000,
+            "colorTemperature": 5466,
             "from": "19:00",
             "to": "06:30"
         }
